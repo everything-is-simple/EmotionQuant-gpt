@@ -1,4 +1,4 @@
-"""Data models aligned with docs/design/data-layer/data-layer-data-models.md."""
+"""Data models aligned with docs/design/core-infrastructure/data-layer/data-layer-data-models.md."""
 
 from src.data.models.entities import StockBasic, TradeCalendar
 from src.data.models.snapshots import IndustrySnapshot, MarketSnapshot

@@ -12,7 +12,7 @@ def test_duckdb_storage_policy_is_single_db_first_across_docs_and_env_example() 
         encoding="utf-8"
     )
     data_models = (
-        PROJECT_ROOT / "docs/design/data-layer/data-layer-data-models.md"
+        PROJECT_ROOT / "docs/design/core-infrastructure/data-layer/data-layer-data-models.md"
     ).read_text(encoding="utf-8")
 
     assert "默认单库" in env_example

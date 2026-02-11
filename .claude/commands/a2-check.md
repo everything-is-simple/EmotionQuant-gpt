@@ -20,11 +20,11 @@
 
 | 模块 | 规范文件 | 触发条件 |
 | ------ | ---------- | ---------- |
-| 数据层 | `docs/design/data-layer/*.md` | 涉及数据仓储、模型 |
+| 数据层 | `docs/design/core-infrastructure/data-layer/*.md` | 涉及数据仓储、模型 |
 | 算法层 | `docs/design/core-algorithms/*/` | 涉及 MSS/IRS/PAS |
-| GUI | `docs/design/gui/` | 涉及界面、权限 |
-| 回测 | `docs/design/backtest/` | 涉及回测逻辑 |
-| 交易 | `docs/design/trading/` | 涉及风控、下单 |
+| GUI | `docs/design/core-infrastructure/gui/` | 涉及界面、权限 |
+| 回测 | `docs/design/core-infrastructure/backtest/` | 涉及回测逻辑 |
+| 交易 | `docs/design/core-infrastructure/trading/` | 涉及风控、下单 |
 
 ---
 
@@ -42,9 +42,9 @@ cat docs/design/{module}/{module}-information-flow.md
 cat docs/design/core-algorithms/mss/mss-*.md  # MSS 相关
 cat docs/design/core-algorithms/irs/irs-*.md  # IRS 相关
 cat docs/design/core-algorithms/pas/pas-*.md  # PAS 相关
-cat docs/design/gui/gui-*.md  # GUI 相关
-cat docs/design/backtest/backtest-*.md  # 回测相关
-cat docs/design/trading/trading-*.md  # 交易相关
+cat docs/design/core-infrastructure/gui/gui-*.md  # GUI 相关
+cat docs/design/core-infrastructure/backtest/backtest-*.md  # 回测相关
+cat docs/design/core-infrastructure/trading/trading-*.md  # 交易相关
 ```
 
 ### 2.2 规范版本记录

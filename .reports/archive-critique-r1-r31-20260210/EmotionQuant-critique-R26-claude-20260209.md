@@ -429,15 +429,15 @@ stock_gene_cache 更新策略：
 对齐结果：
 - `docs/design/core-algorithms/integration/integration-algorithm.md`：P1-R26-02 / P1-R26-03 / P2-R26-08
 - `docs/design/core-algorithms/integration/integration-data-models.md`：P1-R26-02 / P1-R26-03（契约追溯）
-- `docs/design/backtest/backtest-algorithm.md`：P1-R26-01 / P1-R26-04 / P2-R26-09
-- `docs/design/trading/trading-algorithm.md`：P1-R26-01 / P1-R26-04 / P2-R26-07
+- `docs/design/core-infrastructure/backtest/backtest-algorithm.md`：P1-R26-01 / P1-R26-04 / P2-R26-09
+- `docs/design/core-infrastructure/trading/trading-algorithm.md`：P1-R26-01 / P1-R26-04 / P2-R26-07
 - `docs/design/core-algorithms/irs/irs-algorithm.md`：P1-R26-03 / P1-R26-05
 - `docs/design/core-algorithms/irs/irs-data-models.md`：P1-R26-03（质量字段）
 - `docs/design/core-algorithms/mss/mss-algorithm.md`：P1-R26-05（stale 门禁）
 - `docs/design/core-algorithms/pas/pas-algorithm.md`：P1-R26-04（RR 执行下限）
-- `docs/design/data-layer/data-layer-information-flow.md`：P1-R26-05 / P2-R26-10
-- `docs/design/data-layer/data-layer-data-models.md`：P1-R26-05 / P2-R26-10（字段与窗口策略）
-- `docs/design/gui/gui-information-flow.md` + `docs/design/gui/gui-data-models.md`：P2-R26-06
+- `docs/design/core-infrastructure/data-layer/data-layer-information-flow.md`：P1-R26-05 / P2-R26-10
+- `docs/design/core-infrastructure/data-layer/data-layer-data-models.md`：P1-R26-05 / P2-R26-10（字段与窗口策略）
+- `docs/design/core-infrastructure/gui/gui-information-flow.md` + `docs/design/core-infrastructure/gui/gui-data-models.md`：P2-R26-06
 - `docs/naming-conventions.md`：P1-R26-02（`unknown` 命名规范）
 
 ---

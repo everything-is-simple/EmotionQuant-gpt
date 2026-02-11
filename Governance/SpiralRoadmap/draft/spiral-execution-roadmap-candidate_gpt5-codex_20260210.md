@@ -2,13 +2,13 @@
 
 ## 0. 文档元信息
 
-- 文档用途: 作为 `docs/improvement-plans/spiral-full-roadmap-detailed_claude-opus-max_20260210.md` 的校正后执行稿，供你审批后落为主路线。
+- 文档用途: 作为 `docs/design/enhancements/spiral-full-roadmap-detailed_claude-opus-max_20260210.md` 的校正后执行稿，供你审批后落为主路线。
 - 生成模型: GPT-5 Codex
 - 生成时间: 2026-02-10
 - 状态: Candidate（评审中）
 - 适用范围: S0-S6 Spiral 实施
 - 上位约束:
-  - `docs/improvement-plans/eq-improvement-plan-core-frozen.md`
+  - `docs/design/enhancements/eq-improvement-plan-core-frozen.md`
   - `Governance/steering/系统铁律.md`
   - `Governance/steering/CORE-PRINCIPLES.md`
   - `Governance/steering/6A-WORKFLOW.md`
@@ -51,24 +51,24 @@
   - `Governance/steering/CORE-PRINCIPLES.md`
   - `Governance/steering/6A-WORKFLOW.md`
 - 路线与能力包:
-  - `docs/improvement-plans/eq-improvement-plan-core-frozen.md`
-  - `docs/improvement-plans/spiral-full-roadmap-detailed_claude-opus-max_20260210.md`
+  - `docs/design/enhancements/eq-improvement-plan-core-frozen.md`
+  - `docs/design/enhancements/spiral-full-roadmap-detailed_claude-opus-max_20260210.md`
   - `Governance/Capability/SPIRAL-CP-OVERVIEW.md`
   - `Governance/Capability/CP-01-data-layer.md` 到 `Governance/Capability/CP-10-validation.md`
 - 设计契约:
-  - `docs/design/data-layer/data-layer-data-models.md`
+  - `docs/design/core-infrastructure/data-layer/data-layer-data-models.md`
   - `docs/design/core-algorithms/mss/mss-algorithm.md`
   - `docs/design/core-algorithms/irs/irs-algorithm.md`
   - `docs/design/core-algorithms/pas/pas-algorithm.md`
   - `docs/design/core-algorithms/integration/integration-algorithm.md`
-  - `docs/design/validation/factor-weight-validation-algorithm.md`
-  - `docs/design/validation/factor-weight-validation-data-models.md`
-  - `docs/design/backtest/backtest-algorithm.md`
-  - `docs/design/backtest/backtest-engine-selection.md`
-  - `docs/design/trading/trading-algorithm.md`
-  - `docs/design/trading/trading-data-models.md`
-  - `docs/design/analysis/analysis-algorithm.md`
-  - `docs/design/gui/gui-algorithm.md`
+  - `docs/design/core-infrastructure/validation/factor-weight-validation-algorithm.md`
+  - `docs/design/core-infrastructure/validation/factor-weight-validation-data-models.md`
+  - `docs/design/core-infrastructure/backtest/backtest-algorithm.md`
+  - `docs/design/core-infrastructure/backtest/backtest-engine-selection.md`
+  - `docs/design/core-infrastructure/trading/trading-algorithm.md`
+  - `docs/design/core-infrastructure/trading/trading-data-models.md`
+  - `docs/design/core-infrastructure/analysis/analysis-algorithm.md`
+  - `docs/design/core-infrastructure/gui/gui-algorithm.md`
 - 实现现状:
   - `src/config/config.py`
   - `src/data/fetcher.py`
@@ -614,7 +614,7 @@ Out Scope:
 若你认可本稿，建议按以下顺序落地:
 
 1. 先将本稿标记为“Approved”。
-2. 将核心内容回写至 `docs/improvement-plans/eq-improvement-plan-core-frozen.md`，保持单主计划。
+2. 将核心内容回写至 `docs/design/enhancements/eq-improvement-plan-core-frozen.md`，保持单主计划。
 3. 在 `Governance/record/development-status.md` 更新当前圈为 S0 开始执行。
 4. 从 S0-T1 立即开工，先拿到第一圈五件套证据。
 

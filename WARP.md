@@ -1,12 +1,22 @@
 # EmotionQuant 项目规则（Spiral 版）
 
-**版本**: v1.0.0
-**最后更新**: 2026-02-10
+**版本**: v1.1.0
+**最后更新**: 2026-02-11
 **状态**: 取代所有旧版个人 Rules，本文件为项目唯一 Warp 规则
 
 ---
 
-## 1. 系统定位
+## 1. 文档定位
+
+- 作用：给自动化代理提供最小、可执行的仓库工作规则。
+- 执行主计划唯一入口：`docs/design/enhancements/eq-improvement-plan-core-frozen.md`（`enhancement-selection-analysis_claude-opus-max_20260210.md` 仅作选型论证输入）。
+- 权威架构入口：`docs/system-overview.md`
+- 权威路线入口：`Governance/Capability/SPIRAL-CP-OVERVIEW.md`
+- 权威治理入口：`Governance/steering/`
+
+---
+
+## 2. 系统定位
 
 EmotionQuant 是面向中国 A 股的情绪驱动量化系统。
 
@@ -17,7 +27,7 @@ EmotionQuant 是面向中国 A 股的情绪驱动量化系统。
 
 ---
 
-## 2. 系统铁律（7 条，零容忍）
+## 3. 系统铁律（7 条，零容忍）
 
 | # | 铁律 | 核心要求 |
 |---|------|----------|
@@ -35,9 +45,9 @@ EmotionQuant 是面向中国 A 股的情绪驱动量化系统。
 
 ---
 
-## 3. 6A 工作流（Spiral 闭环版）
+## 4. 6A 工作流（Spiral 闭环版）
 
-### 3.1 六步定义
+### 4.1 六步定义
 
 | 阶段 | 名称 | 核心动作 |
 |------|------|----------|
@@ -48,7 +58,7 @@ EmotionQuant 是面向中国 A 股的情绪驱动量化系统。
 | A5 | Archive | 产出 review.md + final.md，整理证据链 |
 | A6 | Advance | 最小同步 5 项，推进路线状态 |
 
-### 3.2 执行约束
+### 4.2 执行约束
 
 1. 每圈只允许 **1 个主目标**
 2. 每圈只取 **1-3 个 CP Slice**
@@ -56,18 +66,18 @@ EmotionQuant 是面向中国 A 股的情绪驱动量化系统。
 4. 默认流程：`Scope → Build → Verify → Sync`
 5. 高风险时升级 Strict 6A（交易路径/风控/数据契约破坏性变更/关键外部依赖）
 
-### 3.3 退出条件
+### 4.3 退出条件
 
 以下任一未满足，本圈不得收口：
 - 无可运行命令 / 无自动化测试 / 无产物文件 / 无复盘记录 / 无同步记录
 
-### 3.4 分支策略
+### 4.4 分支策略
 
 - 默认合并目标：`main`
 - 开发分支命名：`feature/spiral-s{N}-{topic}`
 - 若后续启用 `develop`，切换为 `feature → develop → main（里程碑发布）`
 
-### 3.5 每圈最小同步（5 项）
+### 4.5 每圈最小同步（5 项）
 
 1. `Governance/specs/spiral-s{N}/final.md`
 2. `Governance/record/development-status.md`
@@ -81,11 +91,11 @@ CP 文档仅在契约变化时更新。
 
 ---
 
-## 4. 命名约定
+## 5. 命名约定
 
 **强制要求**：代码中使用英文，注释/文档/UI 使用中文。
 
-### 4.1 情绪周期（MssCycle 枚举）
+### 5.1 情绪周期（MssCycle 枚举）
 
 | 英文 | 中文 | 温度条件 |
 |------|------|----------|
@@ -98,23 +108,23 @@ CP 文档仅在契约变化时更新。
 | recession | 退潮期 | <60°C + down/sideways |
 | unknown | 异常兜底 | 输入异常或不可判定 |
 
-### 4.2 趋势方向（Trend 枚举）
+### 5.2 趋势方向（Trend 枚举）
 
 `up` / `down` / `sideways`（不使用 `flat`）
 
-### 4.3 PAS 方向（PasDirection 枚举）
+### 5.3 PAS 方向（PasDirection 枚举）
 
 `bullish` / `bearish` / `neutral`
 
-### 4.4 轮动状态（RotationStatus 枚举）
+### 5.4 轮动状态（RotationStatus 枚举）
 
 `IN` / `OUT` / `HOLD`
 
-### 4.5 推荐等级
+### 5.5 推荐等级
 
 `STRONG_BUY`(≥75) / `BUY`(≥70) / `HOLD`(50-69) / `SELL`(30-49) / `AVOID`(<30)
 
-### 4.6 字段规范
+### 5.6 字段规范
 
 - 统一 `snake_case`
 - 内部股票代码：`stock_code`（6 位，如 `000001`）
@@ -125,13 +135,13 @@ CP 文档仅在契约变化时更新。
 
 ---
 
-## 5. 数据架构
+## 6. 数据架构
 
-### 5.1 存储策略
+### 6.1 存储策略
 
 Parquet + DuckDB 单库优先（`DUCKDB_DIR/emotionquant.duckdb`）。分库仅在性能阈值触发后启用。
 
-### 5.2 四层架构
+### 6.2 四层架构
 
 | 层级 | 内容 |
 |------|------|
@@ -142,7 +152,7 @@ Parquet + DuckDB 单库优先（`DUCKDB_DIR/emotionquant.duckdb`）。分库仅�
 
 **依赖规则**：L2 只读 L1；L3 只读 L1/L2；L4 只读 L1/L2/L3。禁止反向依赖。
 
-### 5.3 路径管理
+### 6.3 路径管理
 
 ```python
 # ✅ 必须
@@ -157,7 +167,7 @@ cache_dir = "G:/EmotionQuant_data/"
 
 ---
 
-## 6. 架构分层（八层）
+## 7. 架构分层（八层）
 
 | 层 | 职责 |
 |----|------|
@@ -172,14 +182,16 @@ cache_dir = "G:/EmotionQuant_data/"
 
 ---
 
-## 7. 治理结构
+## 8. 治理结构
 
-### 7.1 目录定位
+### 8.1 目录定位
 
 | 目录 | 定位 |
 |------|------|
-| `docs/design/` | 设计基准（四位一体） |
-| `docs/improvement-plans/` | 改进行动计划统一入口 |
+| `docs/design/` | 设计基准（三层：核心算法 / 核心基础设施 / 外挂增强） |
+| `docs/design/core-algorithms/` | 核心算法设计（MSS/IRS/PAS/Integration） |
+| `docs/design/core-infrastructure/` | 核心基础设施设计（Data/Validation/Backtest/Trading/GUI/Analysis） |
+| `docs/design/enhancements/` | 改进行动计划统一入口 |
 | `Governance/steering/` | 铁律、原则、工作流 |
 | `Governance/Capability/` | Spiral 主路线与 CP |
 | `Governance/specs/spiral-s*/` | 每圈 specs 与复盘 |
@@ -187,7 +199,7 @@ cache_dir = "G:/EmotionQuant_data/"
 | `.reports/` | 报告存放（命名含日期时间） |
 | `.archive/` | 历史归档（只读） |
 
-### 7.2 单一事实源（SoT）
+### 8.2 单一事实源（SoT）
 
 | 场景 | 权威文件 |
 |------|----------|
@@ -196,12 +208,12 @@ cache_dir = "G:/EmotionQuant_data/"
 | 6A 工作流 | `Governance/steering/6A-WORKFLOW.md` |
 | 系统铁律 | `Governance/steering/系统铁律.md` |
 | 核心原则 | `Governance/steering/CORE-PRINCIPLES.md` |
-| 改进行动主计划 | `docs/improvement-plans/eq-improvement-plan-core-frozen.md` |
+| 改进行动主计划 | `docs/design/enhancements/eq-improvement-plan-core-frozen.md` |
 | 命名规范 | `docs/naming-conventions.md` |
 | 系统总览 | `docs/system-overview.md` |
 | 模块索引 | `docs/module-index.md` |
 
-### 7.3 归档规则
+### 8.3 归档规则
 
 - 路线模型代际变化必须归档：`archive-{model}-{version}-{date}`
 - 归档目录只读，不再迭代
@@ -209,34 +221,51 @@ cache_dir = "G:/EmotionQuant_data/"
 
 ---
 
-## 8. 质量门控
+## 9. 质量门控
 
-### 8.1 必须门
+### 9.1 必须门
 
 - 命令可运行、测试可复现、产物可检查
 - 硬编码检查、A 股规则检查、本地数据检查
 
-### 8.2 合并前清理
+### 9.2 合并前清理
 
 - TODO/HACK/FIXME：开发中允许，合并前必须清理或登记到 `debts.md`
 
-### 8.3 原则
+### 9.3 原则
 
 - 有效测试优先于覆盖率数字
 - 闭环优先于扩张
 
 ---
 
-## 9. 核心算法约束
+## 10. 核心算法约束
 
 - MSS / IRS / PAS 三算法**同权协同**，集成层不得偏废或以单算法硬否决
 - 三算法以情绪因子为共同输入，保持情绪口径一致
-- Validation Layer 是独立模块，负责因子有效性验证与权重方案验证
-- 集成层输出 Gate 决策（PASS/WARN/FAIL）
+- Validation Layer 是独立模块，负责因子有效性验证与权重方案验证，输出 Gate 决策（PASS/WARN/FAIL）
+- Integration Layer 消费 Gate 决策进行信号集成，输出 `integrated_recommendation`
 
 ---
 
-## 10. 历史说明
+## 11. 技术栈口径
+
+- Python `>=3.10`
+- 数据：Parquet + DuckDB（单库优先）
+- GUI 主线：Streamlit + Plotly
+- 回测主选：Qlib（研究与实验）；执行基线：本地向量化回测器；兼容适配：backtrader（可选，不是主线）
+
+详见：`pyproject.toml`、`docs/design/core-infrastructure/backtest/backtest-engine-selection.md`
+
+---
+
+## 12. 仓库远端
+
+- `origin`: `https://github.com/everything-is-simple/EmotionQuant_beta.git`
+
+---
+
+## 13. 历史说明
 
 本文件取代以下旧版个人 Rules（均为 v3.x 线性 Phase 时代，已过时）：
 - CORE-PRINCIPLES v3.3.0（线性版）
@@ -252,7 +281,8 @@ cache_dir = "G:/EmotionQuant_data/"
 
 | 版本 | 日期 | 变更内容 |
 |------|------|----------|
-| v1.0.0 | 2026-02-10 | 首版：与 Spiral 治理文件全面对齐，取代 4 条旧版个人 Rules |
+|| v1.1.0 | 2026-02-11 | 与 CLAUDE.md 对齐同步：补充文档定位节、修正 Gate 决策归属、补充回测技术栈口径、补充仓库远端 |
+|| v1.0.0 | 2026-02-10 | 首版：与 Spiral 治理文件全面对齐，取代 4 条旧版个人 Rules |
 
 
 

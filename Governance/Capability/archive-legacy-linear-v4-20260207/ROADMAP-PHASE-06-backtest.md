@@ -11,7 +11,7 @@
 ---
 ## 文档对齐声明
 
-> **权威设计文档**: `docs/design/backtest/`
+> **权威设计文档**: `docs/design/core-infrastructure/backtest/`
 
 ---
 
@@ -474,7 +474,7 @@ def calculate_max_drawdown(equity_curve: List[float]) -> float:
 
 ## 4. 输出规范
 
-> 详细字段与表结构以 `docs/design/backtest/backtest-data-models.md` 为准。
+> 详细字段与表结构以 `docs/design/core-infrastructure/backtest/backtest-data-models.md` 为准。
 
 ### 4.1 BacktestResult 核心字段
 
@@ -883,7 +883,7 @@ CREATE TABLE backtest_quality_log (
 
 ### 9.5 用例清单对齐
 
-- [ ] `docs/design/backtest/backtest-test-cases.md` 已覆盖所有零容忍场景
+- [ ] `docs/design/core-infrastructure/backtest/backtest-test-cases.md` 已覆盖所有零容忍场景
 
 ---
 

@@ -46,7 +46,7 @@
 
 | 项目 | 内容 |
 |------|------|
-| 文件 | `docs/design/analysis/analysis-algorithm.md` §2.1 (L46-47) |
+| 文件 | `docs/design/core-infrastructure/analysis/analysis-algorithm.md` §2.1 (L46-47) |
 | 现状 | `N = len(equity_curve)` → `annual_return = (equity[-1]/equity[0])^(252/N) - 1` |
 | 问题 | N 个净值点对应 N-1 个交易日。用 N 做分母导致年化指数偏低。100 天净值序列 → 252/100=2.52 vs 正确 252/99=2.5454。短窗口差异更大。|
 | 佐证 | 同文件 §7 (L378-379) 使用 `N = len(daily_returns)`（即 `len(equity_curve)-1`），与 `analysis-data-models.md` 公式表一致。§2.1 与 §7 自相矛盾。|
@@ -56,7 +56,7 @@
 
 | 项目 | 内容 |
 |------|------|
-| 文件 | `docs/design/analysis/analysis-algorithm.md` §2.4 (L106) |
+| 文件 | `docs/design/core-infrastructure/analysis/analysis-algorithm.md` §2.4 (L106) |
 | 现状 | `holding_days = [(t.sell_date - t.buy_date).days for t in trades]` |
 | 问题 | (1) `TradeRecord`（Trading）无 `sell_date` 和 `buy_date`；(2) `BacktestTrade`（Backtest）也无这两个字段；(3) `TradeRecord` 是单笔买卖记录，不是配对轮回——配对逻辑从未定义。|
 | 佐证 | 同文件 §7 (L411) 改用 `t.holding_days`，但 BacktestTrade 字段名是 `hold_days`（见 P2-R12-08）。两种写法都与实际数据模型不符。 |
@@ -66,7 +66,7 @@
 
 | 项目 | 内容 |
 |------|------|
-| 文件 | `docs/design/backtest/backtest-algorithm.md` §3.1 (L95) |
+| 文件 | `docs/design/core-infrastructure/backtest/backtest-algorithm.md` §3.1 (L95) |
 | 现状 | `signal_id=(row.signal_id or f"SIG_{signal_date}_{row.stock_code}")` |
 | 问题 | `row` 来自 `integrated_recommendation`，但 `IntegratedRecommendation` dataclass（integration-data-models.md §3.1）和 DDL（§4.1）均无 `signal_id` 字段。运行时会触发 `AttributeError`（dataclass）或 `KeyError`（Row）。 |
 | 佐证 | Trading §2.1 (trading-algorithm.md L74) 从不尝试读取 `row.signal_id`，而是直接生成 `f"SIG_{trade_date}_{row.stock_code}"`。两侧策略不一致。|
@@ -76,7 +76,7 @@
 
 | 项目 | 内容 |
 |------|------|
-| 文件 | `docs/design/backtest/backtest-data-models.md` §1.4 (L140-159) + §2.2 (L280-307) |
+| 文件 | `docs/design/core-infrastructure/backtest/backtest-data-models.md` §1.4 (L140-159) + §2.2 (L280-307) |
 | 现状 | Backtest `Position` 无 `industry_code` 字段。|
 | 问题 | Analysis §5.2（analysis-algorithm.md L264）按 `position.industry_code` 计算行业 HHI。回测持仓无该字段 → 分析引擎对回测结果执行行业集中度计算时 crash。|
 | 佐证 | Trading `Position`（trading-data-models.md §1.3 L100）有 `industry_code`，DDL（§4.2 L282）也有。两侧不对称。|
@@ -86,7 +86,7 @@
 
 | 项目 | 内容 |
 |------|------|
-| 文件 | `docs/design/analysis/analysis-algorithm.md` §4.1 (L186) |
+| 文件 | `docs/design/core-infrastructure/analysis/analysis-algorithm.md` §4.1 (L186) |
 | 现状 | `pnl_pct = (trade.price - rec.entry) / rec.entry` |
 | 问题 | `TradeRecord`（Trading）字段为 `price` ✓，但 `BacktestTrade`（Backtest）字段为 `filled_price` ✗。Analysis §4.1 注释明确说 "回测分析改用 `backtest_trade_records`"（L170），同一行代码无法兼容两种来源。 |
 | 建议 | 方案 A：统一字段名（Trading `TradeRecord.price` → `filled_price`，与 Backtest 对齐）。方案 B：Analysis 归因代码对回测/实盘分别处理。推荐方案 A。 |
@@ -95,7 +95,7 @@
 
 | 项目 | 内容 |
 |------|------|
-| 文件 | `docs/design/backtest/backtest-data-models.md` §1.6 vs §2.3 |
+| 文件 | `docs/design/core-infrastructure/backtest/backtest-data-models.md` §1.6 vs §2.3 |
 | 现状 | `BacktestMetrics` dataclass 含 `volatility`, `fill_rate`, `limit_up_rejected`, `auction_failed`；`backtest_results` DDL（§2.3 L309-343）均无对应列。 |
 | 问题 | 回测绩效持久化后，波动率与成交统计指标丢失，无法在 Analysis 或 GUI 中还原。 |
 | 建议 | DDL 补齐 4 列：`volatility DECIMAL(10,4)`, `fill_rate DECIMAL(8,4)`, `limit_up_rejected INTEGER`, `auction_failed INTEGER`。 |

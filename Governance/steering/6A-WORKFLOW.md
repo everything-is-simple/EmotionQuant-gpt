@@ -65,7 +65,7 @@
   4. `Governance/record/reusable-assets.md`
   5. `Governance/Capability/SPIRAL-CP-OVERVIEW.md`
 - 若涉及改进行动计划变更，同步更新：
-  - `docs/improvement-plans/eq-improvement-plan-core-frozen.md`
+  - `docs/design/enhancements/eq-improvement-plan-core-frozen.md`
 
 ---
 

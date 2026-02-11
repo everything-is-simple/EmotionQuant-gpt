@@ -34,8 +34,8 @@
 |---|---|---|---|---|
 | S-DES-001 | 系统总览（Spiral） | `docs/system-overview.md` | S | 架构基线 |
 | S-DES-002 | 模块索引 | `docs/module-index.md` | S | 设计导航 |
-| A-DES-003 | 回测选型策略 | `docs/design/backtest/backtest-engine-selection.md` | A | 引擎替换决策 |
-| A-DES-004 | 因子/权重验证设计 | `docs/design/validation/*` | A | 验证模块落地 |
+| A-DES-003 | 回测选型策略 | `docs/design/core-infrastructure/backtest/backtest-engine-selection.md` | A | 引擎替换决策 |
+| A-DES-004 | 因子/权重验证设计 | `docs/design/core-infrastructure/validation/*` | A | 验证模块落地 |
 
 ---
 

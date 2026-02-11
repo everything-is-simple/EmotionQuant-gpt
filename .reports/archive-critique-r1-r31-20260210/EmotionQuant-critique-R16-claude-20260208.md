@@ -23,7 +23,7 @@
 
 ### ~~P1-R16-01: gui-api.md `format_pnl` 颜色违反 A 股惯例~~ ✅ 已修复
 
-**位置**: `docs/design/gui/gui-api.md` (lines 385-388)
+**位置**: `docs/design/core-infrastructure/gui/gui-api.md` (lines 385-388)
 **问题**: `format_pnl` 返回值注释使用西方惯例（green=盈利, red=亏损），与 A 股惯例（red=盈利, green=亏损）相反。
 
 **现状** (gui-api.md line 386-387):
@@ -46,7 +46,7 @@
 
 ### ~~P1-R16-02: gui-api.md `format_trend` 颜色违反 A 股惯例~~ ✅ 已修复
 
-**位置**: `docs/design/gui/gui-api.md` (lines 345-347)
+**位置**: `docs/design/core-infrastructure/gui/gui-api.md` (lines 345-347)
 **问题**: `format_trend` 返回值使用西方惯例（green=up, red=down），与 A 股惯例相反。
 
 **现状**:
@@ -69,7 +69,7 @@
 
 ### ~~P1-R16-03: gui-api.md `format_temperature` 颜色枚举缺 cyan，与数据模型/算法 4 色不一致~~ ✅ 已修复
 
-**位置**: `docs/design/gui/gui-api.md` (line 306)
+**位置**: `docs/design/core-infrastructure/gui/gui-api.md` (line 306)
 **问题**: `format_temperature` 返回值注释只列出 3 种颜色 `(red/orange/blue)`，遗漏 `cyan`。
 
 **现状** (gui-api.md line 306):
@@ -87,7 +87,7 @@ color: 颜色 (red/orange/blue)
 
 ### ~~P1-R16-04: trading-api.md `add_position` 缺少 `industry_code` 参数~~ ✅ 已修复
 
-**位置**: `docs/design/trading/trading-api.md` (lines 290-319)
+**位置**: `docs/design/core-infrastructure/trading/trading-api.md` (lines 290-319)
 **问题**: `PositionManager.add_position()` 的参数列表不包含 `industry_code`，但 `Position` 数据结构中 `industry_code` 是必填字段（无默认值）。
 
 **现状** (trading-api.md lines 290-299):
@@ -117,7 +117,7 @@ def add_position(
 
 ### ~~P2-R16-05: gui-api.md `format_temperature` label 枚举仅 3 标签，算法实际 4 标签~~ ✅ 已修复
 
-**位置**: `docs/design/gui/gui-api.md` (line 307)
+**位置**: `docs/design/core-infrastructure/gui/gui-api.md` (line 307)
 **问题**: label 注释为 `(高温/中性/低温)` 仅 3 标签，但 gui-algorithm.md §2.1 定义了 4 标签。
 
 **现状** (gui-api.md line 307):
@@ -139,7 +139,7 @@ label: 标签 (高温/中性/低温)
 
 ### ~~P2-R16-06: gui-api.md `export_to_csv` 返回值注释误写 `.md`~~ ✅ 已修复
 
-**位置**: `docs/design/gui/gui-api.md` (line 416)
+**位置**: `docs/design/core-infrastructure/gui/gui-api.md` (line 416)
 **问题**: `export_to_csv` 的 Returns 注释中路径后缀误写为 `.md`。
 
 **现状** (line 416):
@@ -158,7 +158,7 @@ str: 导出文件路径（.reports/gui/{filename}_{YYYYMMDD_HHMMSS}.md）
 
 ### ~~P2-R16-07: gui-algorithm.md STRONG_BUY "绿色强调"与 A 股色彩约定矛盾~~ ✅ 已修复
 
-**位置**: `docs/design/gui/gui-algorithm.md` (line 72)
+**位置**: `docs/design/core-infrastructure/gui/gui-algorithm.md` (line 72)
 **问题**: STRONG_BUY（最强看多信号）的显示规则标注为"绿色强调"，但同文档 line 21 明确声明"遵循 A 股红涨绿跌"。按 A 股惯例，最强看多信号应使用红色强调。
 
 **现状** (line 72):
@@ -177,7 +177,7 @@ str: 导出文件路径（.reports/gui/{filename}_{YYYYMMDD_HHMMSS}.md）
 
 ### ~~P2-R16-08: analysis-api.md `compute_metrics` 未暴露 `risk_free_rate` 参数~~ ✅ 已修复
 
-**位置**: `docs/design/analysis/analysis-api.md` (lines 43-59)
+**位置**: `docs/design/core-infrastructure/analysis/analysis-api.md` (lines 43-59)
 **问题**: `compute_metrics(start_date, end_date, equity_curve)` 不接受 `risk_free_rate` 参数，内部调用 `calculate_risk_metrics` 时硬编码 `0.015`。而 `BacktestConfig.risk_free_rate` 可由用户配置。若回测使用非默认利率，Analysis 层仍用 0.015 计算，导致同一净值曲线产生不同 Sharpe/Sortino。
 
 **修复**: `compute_metrics` 增加 `risk_free_rate: float = 0.015` 可选参数，透传至 `calculate_risk_metrics`。
@@ -186,7 +186,7 @@ str: 导出文件路径（.reports/gui/{filename}_{YYYYMMDD_HHMMSS}.md）
 
 ### ~~P2-R16-09: backtest-data-models.md `BacktestTrade.status` 注释遗漏 `partially_filled`~~ ✅ 已修复
 
-**位置**: `docs/design/backtest/backtest-data-models.md` (line 121)
+**位置**: `docs/design/core-infrastructure/backtest/backtest-data-models.md` (line 121)
 **问题**: BacktestTrade 数据类的 `status` 注释写 `# pending/filled/rejected`，遗漏 `partially_filled`，与同文档 TradeStatus 枚举（line 369-374）的 4 值不一致。
 
 **现状** (line 121):
@@ -209,7 +209,7 @@ class TradeStatus(Enum):
 
 ### ~~P2-R16-10: gui-information-flow.md 温度格式化示例遗漏 cyan 分支~~ ✅ 已修复
 
-**位置**: `docs/design/gui/gui-information-flow.md` (lines 238-239)
+**位置**: `docs/design/core-infrastructure/gui/gui-information-flow.md` (lines 238-239)
 **问题**: 温度卡片数据流示例仅展示 2 级判断（`>80` → red / `>=45` → orange），遗漏 `>=30 → cyan` 分支。虽然对于示例值 65.5 正确命中 orange，但作为参考文档误导读者以为只有 3 级（red/orange/blue），与 gui-algorithm.md 的 4 级分段不一致。
 
 **现状** (lines 238-239):

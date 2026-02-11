@@ -522,7 +522,7 @@ CREATE TABLE integrated_recommendation (
 ### 4.6 validation_* Validation 运行时表
 
 Validation 运行数据纳入 L3 正式数据架构（DuckDB 权威存储），详细字段与 DDL 见  
-`docs/design/validation/factor-weight-validation-data-models.md` §3。
+`docs/design/core-infrastructure/validation/factor-weight-validation-data-models.md` §3。
 
 | 表名 | 主键/唯一键 | 说明 |
 |------|-------------|------|

@@ -3,7 +3,7 @@
 ## 0. 文档信息
 
 - 状态: 当前唯一有效主计划（覆盖 R1-R31 收敛后实施阶段）
-- 最后更新: 2026-02-10
+- 最后更新: 2026-02-11
 - 适用: Spiral S0-S6（与 `Governance/Capability/SPIRAL-CP-OVERVIEW.md` 严格对齐）
 - 输入来源:
   - `.reports/archive-critique-r1-r31-20260210/`
@@ -11,6 +11,12 @@
   - `.reports/对标开源A股量化系统批判_修订版_20260209.md`
   - `.reports/对标批判响应行动计划_20260209_233929.md`
   - `.reports/EmotionQuant_行动计划_采纳批判建议_20260209_2341.md`
+  - `docs/design/enhancements/enhancement-selection-analysis_claude-opus-max_20260210.md`（外挂选型审计输入）
+
+执行口径声明:
+
+1. 本文档是唯一执行基线（run/test/artifact/review/sync 以本文为准）。
+2. `enhancement-selection-analysis_claude-opus-max_20260210.md` 作为外挂选型与排期论证依据，不单独构成执行入口。
 
 ---
 
@@ -74,7 +80,7 @@
 - `src/data/` `src/backtest/` `src/trading/` `src/gui/`（仅按现有设计稿落地实现）
 - `tests/contracts/` `tests/canary/`（契约与金丝雀）
 - `scripts/quality/`（冻结检查、回归脚本）
-- `docs/improvement-plans/eq-improvement-plan-core-frozen.md`（唯一执行主计划）
+- `docs/design/enhancements/eq-improvement-plan-core-frozen.md`（唯一执行主计划）
 - `Governance/specs/spiral-s*/`、`Governance/record/*`（闭环同步）
 
 禁止事项：
@@ -97,6 +103,15 @@
 | ENH-06 | A/B/C 对照看板 | 证明情绪主线优于技术单指标对照 | 技术指标仅对照，不入交易链 |
 | ENH-07 | L4 产物标准化 | 固定报告模板、导出结构、归档规则 | 与 CP-09 指标口径一致 |
 | ENH-08 | 设计冻结检查 | 关键锚点变化自动告警/失败 | 只做守卫，不改设计文档 |
+| ENH-09 | Qlib 适配层 | 将 `integrated_recommendation` 映射为 Qlib 信号并回写标准回测结果 | 仅做适配，不改回测/信号核心语义 |
+
+排期裁决口径（本次审计确认）：
+
+1. `ENH-06` 在 S3 实施最小版（仅对照指标表，不提前到 S1/S2）。
+2. `ENH-07` 延后到 S5（展示闭环阶段统一落地）。
+3. `ENH-08` 采用 S0 骨架 + S6 全量执行。
+4. `ENH-09` 作为核心诉求必需项纳入 S3。
+5. Validation 权重桥接（`validation_weight_plan`）归属 `CP-10` 核心实现，不单列 ENH 编号。
 
 ---
 
@@ -108,7 +123,7 @@
 
 - 主目标: TuShare -> 本地 Parquet/DuckDB -> 快照可复现。
 - CP 切片: `CP01-S1` `CP01-S2`。
-- 外挂增强: `ENH-01` `ENH-02` `ENH-03` `ENH-05` `ENH-08`。
+- 外挂增强: `ENH-01` `ENH-02` `ENH-03` `ENH-04(Data)` `ENH-05` `ENH-08(骨架)`。
 - 建议命令:
   - run: `eq run --date {trade_date} --source tushare`
   - test: `pytest tests/canary tests/contracts/test_data_* -q`
@@ -121,7 +136,7 @@
 
 - 主目标: 输出可复现 `mss_panorama`。
 - CP 切片: `CP02-S1`（必要） + `CP02-S2`（可选）。
-- 外挂增强: `ENH-04` `ENH-07`。
+- 外挂增强: `ENH-04(MSS)`。
 - 建议命令:
   - run: `eq mss --date {trade_date}`
   - test: `pytest tests/contracts/test_mss_* -q`
@@ -133,7 +148,7 @@
 
 - 主目标: 形成可追溯 TopN 推荐。
 - CP 切片: `CP03-S1` `CP04-S1` `CP10-S1` `CP05-S1`。
-- 外挂增强: `ENH-04` `ENH-06` `ENH-07`。
+- 外挂增强: `ENH-04(IRS/PAS/Validation/Integration)`。
 - 建议命令:
   - run: `eq recommend --date {trade_date}`
   - test: `pytest tests/contracts/test_irs_* tests/contracts/test_pas_* tests/contracts/test_validation_* tests/contracts/test_integration_* -q`
@@ -147,7 +162,7 @@
 
 - 主目标: Qlib 主线回测可复现并可对照 baseline。
 - CP 切片: `CP10-S2` `CP06-S1` `CP09-S1`。
-- 外挂增强: `ENH-04` `ENH-06` `ENH-07`。
+- 外挂增强: `ENH-04(Backtest)` `ENH-06` `ENH-09`。
 - 建议命令:
   - run: `eq backtest --engine qlib --start {start} --end {end}`
   - test: `pytest tests/contracts/test_backtest_* tests/contracts/test_validation_integration_bridge.py -q`
@@ -160,7 +175,7 @@
 
 - 主目标: 信号 -> 订单 -> 持仓 -> 风控日志可重放。
 - CP 切片: `CP07-S1` `CP07-S2` `CP09-S1`。
-- 外挂增强: `ENH-04` `ENH-03` `ENH-07`。
+- 外挂增强: `ENH-04(Trading)` `ENH-03`。
 - 建议命令:
   - run: `eq trade --mode paper --date {trade_date}`
   - test: `pytest tests/contracts/test_trading_* tests/contracts/test_backtest_trading_signal_parity.py -q`
@@ -248,5 +263,6 @@
 
 | 日期 | 版本 | 变更 |
 |---|---|---|
+| 2026-02-11 | v2.1.0 | 主计划对齐审计：明确主从权威关系（本文件为唯一执行基线）、吸收 ENH-09（Qlib 适配层）、统一 ENH-06/07/08 排期口径（S3/S5/S0+S6）、补充 Validation 权重桥接归属 CP-10 说明 |
 | 2026-02-10 | v2.0.0 | 基于现有 CP 与设计稿重构为“核心冻结 + 外挂增强”全流程 Spiral 路线；吸收 4 份批判/行动报告建议并收敛到唯一主计划 |
 | 2026-02-10 | v1.0.0 | 首版主计划；建立 docs 统一入口，收敛分散计划 |

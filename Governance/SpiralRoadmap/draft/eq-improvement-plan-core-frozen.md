@@ -74,7 +74,7 @@
 - `src/data/` `src/backtest/` `src/trading/` `src/gui/`（仅按现有设计稿落地实现）
 - `tests/contracts/` `tests/canary/`（契约与金丝雀）
 - `scripts/quality/`（冻结检查、回归脚本）
-- `docs/improvement-plans/eq-improvement-plan-core-frozen.md`（唯一执行主计划）
+- `docs/design/enhancements/eq-improvement-plan-core-frozen.md`（唯一执行主计划）
 - `Governance/specs/spiral-s*/`、`Governance/record/*`（闭环同步）
 
 禁止事项：

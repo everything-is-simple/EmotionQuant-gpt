@@ -12,7 +12,7 @@
 ---
 ## 文档对齐声明
 
-> **权威设计文档**: `docs/design/data-layer/`
+> **权威设计文档**: `docs/design/core-infrastructure/data-layer/`
 > - 算法：`data-layer-algorithm.md`
 > - 数据模型：`data-layer-data-models.md`
 > - API：`data-layer-api.md`
@@ -103,7 +103,7 @@
 
 ### 2.4 industry_snapshot 输出字段明细
 
-> 完整字段与口径详见 `docs/design/data-layer/data-layer-data-models.md` §3.2。
+> 完整字段与口径详见 `docs/design/core-infrastructure/data-layer/data-layer-data-models.md` §3.2。
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
@@ -129,7 +129,7 @@
 
 ### 2.5 stock_gene_cache 输出字段明细（PAS依赖）
 
-> 完整字段与口径详见 `docs/design/data-layer/data-layer-data-models.md` §3.3。
+> 完整字段与口径详见 `docs/design/core-infrastructure/data-layer/data-layer-data-models.md` §3.3。
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
@@ -188,7 +188,7 @@
 ---
 
 **关联文档**：
-- 设计文档：`docs/design/data-layer/`
+- 设计文档：`docs/design/core-infrastructure/data-layer/`
 - 下游Phase：Phase 02 (MSS), Phase 03 (IRS), Phase 04 (PAS)
 
 

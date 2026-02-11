@@ -40,7 +40,7 @@
 ## 4. 清理计划
 
 - S0-S1：优先更新核心入口文档与 ROADMAP。
-- S2-S3：逐步清理 `docs/design/core-algorithms/**` 与 `docs/design/backtest/**` 冲突段落。
+- S2-S3：逐步清理 `docs/design/core-algorithms/**` 与 `docs/design/core-infrastructure/backtest/**` 冲突段落。
 - S4 以后：完成全仓一致性检查。
 
 ---

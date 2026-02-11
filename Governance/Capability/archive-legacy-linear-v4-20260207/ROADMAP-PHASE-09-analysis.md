@@ -11,7 +11,7 @@
 ---
 ## 文档对齐声明
 
-> **权威设计文档**: `docs/design/analysis/`
+> **权威设计文档**: `docs/design/core-infrastructure/analysis/`
 
 ---
 

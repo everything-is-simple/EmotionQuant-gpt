@@ -33,7 +33,7 @@
 
 ### P2-R31-01 — Data Layer info-flow §3.3 示例 cycle+position_advice 与命名规范不一致
 
-**位置**: `docs/design/data-layer/data-layer-information-flow.md` line 368
+**位置**: `docs/design/core-infrastructure/data-layer/data-layer-information-flow.md` line 368
 
 **当前**:
 ```
@@ -53,7 +53,7 @@
 
 ### P3-R31-02 — Data Layer API §5.4 Python 代码转义异常
 
-**位置**: `docs/design/data-layer/data-layer-api.md` lines 359-360
+**位置**: `docs/design/core-infrastructure/data-layer/data-layer-api.md` lines 359-360
 
 **当前**:
 ```python

@@ -108,7 +108,7 @@ Sortino = sqrt(252) × (mean(r_t) - MAR) / DD
 **影响**：回测的风险调整收益指标失真，策略比较结论可能错误。
 
 **状态更新（2026-02-07）**：
-- 已修复（工作区）：`docs/design/backtest/backtest-algorithm.md`
+- 已修复（工作区）：`docs/design/core-infrastructure/backtest/backtest-algorithm.md`
 - 当前状态：已提交（本次 R8 全量修复）
 
 ---
@@ -185,7 +185,7 @@ Python 侧为字符串（如 "SIG_20260131_000001"），DB 侧为 BIGINT（整�
 > 注：Trading 侧 Position.signal_id: str 与 TradeSignal.signal_id: str 一致（均为字符串），Backtest 的 DB 表是唯一使用 BIGINT 的地方。
 
 **状态更新（2026-02-07）**：
-- 已修复（工作区）：`docs/design/backtest/backtest-data-models.md`
+- 已修复（工作区）：`docs/design/core-infrastructure/backtest/backtest-data-models.md`
 - 当前状态：已提交（本次 R8 全量修复）
 
 ---
@@ -199,7 +199,7 @@ Python 侧为字符串（如 "SIG_20260131_000001"），DB 侧为 BIGINT（整�
 BacktestTrade 用于写入 DB。数据类没有 signal_id，DB 的 signal_id 列存在高风险为空（除非实现方额外旁路赋值）。交易回溯（从成交找到对应信号）在回测中断裂风险升高。
 
 **状态更新（2026-02-07）**：
-- 已修复（工作区）：`docs/design/backtest/backtest-data-models.md`
+- 已修复（工作区）：`docs/design/core-infrastructure/backtest/backtest-data-models.md`
 - 当前状态：已提交（本次 R8 全量修复）
 
 ---
@@ -219,7 +219,7 @@ Trading v3.2.1 将 max_position_pct 从 0.10 提升至 0.20（"不低于 Integra
 回测结果会比实盘更保守（S 级仓位被回测截断到 10%），策略表现评估失真。
 
 **状态更新（2026-02-07）**：
-- 已修复（工作区）：`docs/design/backtest/backtest-data-models.md`
+- 已修复（工作区）：`docs/design/core-infrastructure/backtest/backtest-data-models.md`
 - 当前状态：已提交（本次 R8 全量修复）
 
 #### ~~P2-R8-09：data-layer stock_gene_cache.max_pct_chg_history 单位未标注~~
@@ -231,7 +231,7 @@ Trading v3.2.1 将 max_position_pct 从 0.10 提升至 0.20（"不低于 Integra
 建议在 DDL 注释中追加单位口径说明（如 "百分数口径，15 表示 15%"）。
 
 **状态更新（2026-02-07）**：
-- 已修复（工作区）：`docs/design/data-layer/data-layer-data-models.md`
+- 已修复（工作区）：`docs/design/core-infrastructure/data-layer/data-layer-data-models.md`
 - 当前状态：已提交（本次 R8 全量修复）
 
 #### ~~P2-R8-10：IRS §10.2 "PAS 评分 ≥ 80" 不对应任何 PAS 等级边界~~

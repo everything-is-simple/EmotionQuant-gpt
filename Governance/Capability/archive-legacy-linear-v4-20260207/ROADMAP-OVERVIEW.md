@@ -29,15 +29,15 @@
 
 | Phase | 名称 | 核心交付 | 预估工期 | 依赖 | 文档位置 |
 |-------|------|----------|----------|------|----------|
-| 01 | Data Layer | L1-L4数据架构、Repository模式 | 4周 | 无 | `docs/design/data-layer/` |
+| 01 | Data Layer | L1-L4数据架构、Repository模式 | 4周 | 无 | `docs/design/core-infrastructure/data-layer/` |
 | 02 | MSS | 市场情绪全景算法 | 4周 | Phase 01 | `docs/design/core-algorithms/mss/` |
 | 03 | IRS | 行业轮动追踪算法 | 4周 | Phase 01 | `docs/design/core-algorithms/irs/` |
 | 04 | PAS | 个股精准分析算法 | 4周 | Phase 01 | `docs/design/core-algorithms/pas/` |
 | 05 | Integration | 三三制集成算法 | 4周 | Phase 02-04 | `docs/design/core-algorithms/integration/` |
-| 06 | Backtest | 回测引擎 | 4周 | Phase 05 | `docs/design/backtest/` |
-| 07 | Trading | 交易与风控 | 4周 | Phase 05 | `docs/design/trading/` |
-| 08 | GUI | 图形界面 | 4周 | Phase 01-07 | `docs/design/gui/` |
-| 09 | Analysis | 分析报告 | 4周 | Phase 01-07 | `docs/design/analysis/` |
+| 06 | Backtest | 回测引擎 | 4周 | Phase 05 | `docs/design/core-infrastructure/backtest/` |
+| 07 | Trading | 交易与风控 | 4周 | Phase 05 | `docs/design/core-infrastructure/trading/` |
+| 08 | GUI | 图形界面 | 4周 | Phase 01-07 | `docs/design/core-infrastructure/gui/` |
+| 09 | Analysis | 分析报告 | 4周 | Phase 01-07 | `docs/design/core-infrastructure/analysis/` |
 
 ### 1.2 依赖关系图
 

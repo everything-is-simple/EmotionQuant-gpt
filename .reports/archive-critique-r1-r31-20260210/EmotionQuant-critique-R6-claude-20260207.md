@@ -299,7 +299,7 @@ data-models 未同步 Validation Gate 相关变更（`weight_plan`、`Validation
 
 1. `P0-R6-01`（STRONG_BUY 可达域问题）  
    - 已修复：`STRONG_BUY_threshold` 调整为 75，并同步到 Integration/命名规范/Data Layer/GUI。  
-   - 影响文件：`docs/design/core-algorithms/integration/integration-algorithm.md`、`docs/design/core-algorithms/integration/integration-information-flow.md`、`docs/design/core-algorithms/integration/integration-data-models.md`、`docs/naming-conventions.md`、`docs/design/data-layer/data-layer-data-models.md`、`docs/design/gui/gui-algorithm.md`
+   - 影响文件：`docs/design/core-algorithms/integration/integration-algorithm.md`、`docs/design/core-algorithms/integration/integration-information-flow.md`、`docs/design/core-algorithms/integration/integration-data-models.md`、`docs/naming-conventions.md`、`docs/design/core-infrastructure/data-layer/data-layer-data-models.md`、`docs/design/core-infrastructure/gui/gui-algorithm.md`
 
 2. `P0-R6-02`（IRS allocation_advice 覆盖缺口）  
    - 已修复：排名映射改为 `前3/4-10/11-26/27-31`，覆盖全部 31 行业。  
@@ -321,7 +321,7 @@ data-models 未同步 Validation Gate 相关变更（`weight_plan`、`Validation
 
 4. `P0-R6-03`（MSS sideways 低温误判）  
    - 已修复：`sideways` 增加温度分支，`temperature < 60` 归入 `recession`，`temperature >= 60` 才归入 `divergence`。  
-   - 影响文件：`docs/design/core-algorithms/mss/mss-algorithm.md`、`docs/naming-conventions.md`、`docs/design/data-layer/data-layer-data-models.md`、`docs/design/core-algorithms/integration/integration-algorithm.md`
+   - 影响文件：`docs/design/core-algorithms/mss/mss-algorithm.md`、`docs/naming-conventions.md`、`docs/design/core-infrastructure/data-layer/data-layer-data-models.md`、`docs/design/core-algorithms/integration/integration-algorithm.md`
 
 5. `P0-R6-04`（PAS 20 日字段缺口）  
    - 已修复：`PasStockSnapshot` 补齐 `high_20d_prev`、`low_20d_prev`、`low_20d`，并同步到 PAS 算法数据就绪口径与信息流示例。  
@@ -369,11 +369,11 @@ data-models 未同步 Validation Gate 相关变更（`weight_plan`、`Validation
 
 11. `P2-R6-12`（Integration data-models 版本滞后）  
    - 已修复：`integration-data-models` 升级到 `v3.4.3`，补齐 `WeightPlan` / `ValidationGateDecision` 输入模型、`validation_gate`/`weight_plan_id` 追溯字段及对应验证规则。  
-   - 影响文件：`docs/design/core-algorithms/integration/integration-data-models.md`、`docs/design/data-layer/data-layer-data-models.md`
+   - 影响文件：`docs/design/core-algorithms/integration/integration-data-models.md`、`docs/design/core-infrastructure/data-layer/data-layer-data-models.md`
 
 12. `P2-R6-14`（`flat_count` 与涨跌家数重叠语义不清）  
    - 已修复：在 MSS 与 Data Layer 文档显式声明 `flat_count` 可与 `rise_count`/`fall_count` 交叉覆盖，并将验证规则改为按“非互斥口径”描述。  
-   - 影响文件：`docs/design/core-algorithms/mss/mss-data-models.md`、`docs/design/data-layer/data-layer-data-models.md`
+   - 影响文件：`docs/design/core-algorithms/mss/mss-data-models.md`、`docs/design/core-infrastructure/data-layer/data-layer-data-models.md`
 
 状态变更：
 - R6 有效问题：4 → 1（再关闭 3 项）
@@ -387,7 +387,7 @@ data-models 未同步 Validation Gate 相关变更（`weight_plan`、`Validation
 
 13. `P2-R6-13`（DuckDB DDL 语法口径）  
    - 已修复：在 MSS/IRS/PAS/Integration/Analysis 的 data-models 文档中统一将 DDL 明确标注为“MySQL 风格逻辑伪DDL，不可直接在 DuckDB 执行”，并给出 DuckDB 落地改写约束。  
-   - 影响文件：`docs/design/core-algorithms/mss/mss-data-models.md`、`docs/design/core-algorithms/irs/irs-data-models.md`、`docs/design/core-algorithms/pas/pas-data-models.md`、`docs/design/core-algorithms/integration/integration-data-models.md`、`docs/design/analysis/analysis-data-models.md`
+   - 影响文件：`docs/design/core-algorithms/mss/mss-data-models.md`、`docs/design/core-algorithms/irs/irs-data-models.md`、`docs/design/core-algorithms/pas/pas-data-models.md`、`docs/design/core-algorithms/integration/integration-data-models.md`、`docs/design/core-infrastructure/analysis/analysis-data-models.md`
 
 14. `R5 遗留 8 项`（P0-R5-01/02、P1-R5-03/04/05/06、P2-R5-07/08）  
    - 已修复：完成 P0 测试隔离与扫描边界修正、PAS/IRS 冷启动与尺度治理补充、hooks 裸 except 收敛、Snapshot `created_at` 与 JSON 序列化契约落地。  
@@ -452,7 +452,7 @@ data-models 未同步 Validation Gate 相关变更（`weight_plan`、`Validation
 ### 5) P1-R6-06 结论修正（跨文档口径差异，不是幽灵字段）
 
 `yesterday_limit_up_today_avg_pct` 与 `flat_count` 在 `src/data/models/snapshots.py` 存在；  
-它们在 `docs/design/data-layer/data-layer-data-models.md` 也有定义。  
+它们在 `docs/design/core-infrastructure/data-layer/data-layer-data-models.md` 也有定义。  
 问题实质是：**Core 算法 data-models 与 Data Layer data-models 的口径分布不统一**，不应表述为“无规范支撑的幽灵字段”。
 
 ### 6) P1-R6-09 量级结论加前提

@@ -22,8 +22,8 @@
 
 | 项 | 值 |
 |---|---|
-| 文件 | `docs/design/data-layer/data-layer-data-models.md` §7.1 |
-| 对比 | `docs/design/trading/trading-data-models.md` §1.4 TradeRecord + §4.1 DDL |
+| 文件 | `docs/design/core-infrastructure/data-layer/data-layer-data-models.md` §7.1 |
+| 对比 | `docs/design/core-infrastructure/trading/trading-data-models.md` §1.4 TradeRecord + §4.1 DDL |
 | 严重度 | P1 |
 
 **现状**：
@@ -46,8 +46,8 @@
 
 | 项 | 值 |
 |---|---|
-| 文件 | `docs/design/data-layer/data-layer-data-models.md` §7.4 |
-| 对比 | `docs/design/backtest/backtest-data-models.md` §2.1 |
+| 文件 | `docs/design/core-infrastructure/data-layer/data-layer-data-models.md` §7.4 |
+| 对比 | `docs/design/core-infrastructure/backtest/backtest-data-models.md` §2.1 |
 | 严重度 | P1 |
 
 **现状**：
@@ -71,8 +71,8 @@
 
 | 项 | 值 |
 |---|---|
-| 文件 | `docs/design/trading/trading-data-models.md` §4.2 |
-| 对比 | `docs/design/data-layer/data-layer-data-models.md` §7.2 |
+| 文件 | `docs/design/core-infrastructure/trading/trading-data-models.md` §4.2 |
+| 对比 | `docs/design/core-infrastructure/data-layer/data-layer-data-models.md` §7.2 |
 | 严重度 | P1 |
 
 **现状**：
@@ -95,8 +95,8 @@ Trading §4.2 对齐 Data Layer：
 
 | 项 | 值 |
 |---|---|
-| 文件 | `docs/design/analysis/analysis-data-models.md` §1.1 + §3.2 |
-| 对比 | `docs/design/analysis/analysis-algorithm.md` §2.2；`docs/design/backtest/backtest-data-models.md` §1.6 |
+| 文件 | `docs/design/core-infrastructure/analysis/analysis-data-models.md` §1.1 + §3.2 |
+| 对比 | `docs/design/core-infrastructure/analysis/analysis-algorithm.md` §2.2；`docs/design/core-infrastructure/backtest/backtest-data-models.md` §1.6 |
 | 严重度 | P1 |
 
 **现状**：
@@ -117,7 +117,7 @@ Trading §4.2 对齐 Data Layer：
 
 | 项 | 值 |
 |---|---|
-| 文件 | `docs/design/gui/gui-data-models.md` §1.8 |
+| 文件 | `docs/design/core-infrastructure/gui/gui-data-models.md` §1.8 |
 | 严重度 | P2 |
 
 **现状**：
@@ -156,7 +156,7 @@ class BacktestSummaryDisplay:
 | 项 | 值 |
 |---|---|
 | 文件 | `src/config/config.py` |
-| 对比 | `docs/design/trading/trading-data-models.md` §2.1 TradeConfig + §2.2 RiskConfig |
+| 对比 | `docs/design/core-infrastructure/trading/trading-data-models.md` §2.1 TradeConfig + §2.2 RiskConfig |
 | 严重度 | P2 |
 
 **现状**：
@@ -183,8 +183,8 @@ Config.py 仅有 `backtest_*` 前缀参数。Trading 算法依赖以下参数但
 
 | 项 | 值 |
 |---|---|
-| 文件 | `docs/design/backtest/backtest-data-models.md` §2.1 |
-| 对比 | `docs/design/data-layer/data-layer-data-models.md` §7.4 |
+| 文件 | `docs/design/core-infrastructure/backtest/backtest-data-models.md` §2.1 |
+| 对比 | `docs/design/core-infrastructure/data-layer/data-layer-data-models.md` §7.4 |
 | 严重度 | P2 |
 
 **现状**：
@@ -203,7 +203,7 @@ Backtest §2.1 将 `transfer_fee DECIMAL(12,2)` 改为 `DECIMAL(12,4)`，与 Dat
 
 | 项 | 值 |
 |---|---|
-| 文件 | `docs/design/backtest/backtest-data-models.md` §1.7 vs §2.3 |
+| 文件 | `docs/design/core-infrastructure/backtest/backtest-data-models.md` §1.7 vs §2.3 |
 | 严重度 | P2 |
 
 **现状**：
@@ -224,7 +224,7 @@ Backtest §2.1 将 `transfer_fee DECIMAL(12,2)` 改为 `DECIMAL(12,4)`，与 Dat
 
 | 项 | 值 |
 |---|---|
-| 文件 | `docs/design/gui/gui-data-models.md` §1.7 |
+| 文件 | `docs/design/core-infrastructure/gui/gui-data-models.md` §1.7 |
 | 严重度 | P2 |
 
 **现状**：
@@ -252,7 +252,7 @@ pnl_color: str  # red (盈) / green (亏)
 
 | 项 | 值 |
 |---|---|
-| 文件 | `docs/design/gui/gui-algorithm.md` §7.1 |
+| 文件 | `docs/design/core-infrastructure/gui/gui-algorithm.md` §7.1 |
 | 严重度 | P2 |
 
 **现状**：

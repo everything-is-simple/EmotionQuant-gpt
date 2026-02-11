@@ -4,14 +4,14 @@
 **日期**: 2026-02-08
 **审查角度**: Backtest + Trading 模块四位一体内部一致性 & 与上游 Integration 层契约对齐
 **覆盖文件**:
-- `docs/design/backtest/backtest-algorithm.md` (v3.4.5)
-- `docs/design/backtest/backtest-data-models.md` (v3.4.7)
-- `docs/design/backtest/backtest-api.md` (v3.4.1)
-- `docs/design/backtest/backtest-information-flow.md` (v3.4.0)
-- `docs/design/trading/trading-algorithm.md` (v3.2.3)
-- `docs/design/trading/trading-data-models.md` (v3.2.4)
-- `docs/design/trading/trading-api.md` (v3.1.3)
-- `docs/design/trading/trading-information-flow.md` (v3.2.2)
+- `docs/design/core-infrastructure/backtest/backtest-algorithm.md` (v3.4.5)
+- `docs/design/core-infrastructure/backtest/backtest-data-models.md` (v3.4.7)
+- `docs/design/core-infrastructure/backtest/backtest-api.md` (v3.4.1)
+- `docs/design/core-infrastructure/backtest/backtest-information-flow.md` (v3.4.0)
+- `docs/design/core-infrastructure/trading/trading-algorithm.md` (v3.2.3)
+- `docs/design/core-infrastructure/trading/trading-data-models.md` (v3.2.4)
+- `docs/design/core-infrastructure/trading/trading-api.md` (v3.1.3)
+- `docs/design/core-infrastructure/trading/trading-information-flow.md` (v3.2.2)
 - 交叉参考: `integration-algorithm.md`, `integration-data-models.md`
 
 **累计**: R1-R19 共发现 179 个问题（全部已修复验证），本轮 R20 新增 10 个

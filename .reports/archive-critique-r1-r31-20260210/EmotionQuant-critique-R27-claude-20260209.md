@@ -22,8 +22,8 @@
 ### P1-R27-01: BacktestConfig 费率结构 API vs data-models 不一致
 
 **文件**:
-- `docs/design/backtest/backtest-api.md` §2.1（第 154-187 行）
-- `docs/design/backtest/backtest-data-models.md` §1.1（第 20-60 行）
+- `docs/design/core-infrastructure/backtest/backtest-api.md` §2.1（第 154-187 行）
+- `docs/design/core-infrastructure/backtest/backtest-data-models.md` §1.1（第 20-60 行）
 
 **问题**:
 - `backtest-api.md` 中 BacktestConfig 使用**扁平字段**：
@@ -46,8 +46,8 @@
 ### P1-R27-02: `StockPAS` 类型名与规范 `StockPasDaily` 不匹配
 
 **文件**:
-- `docs/design/trading/trading-api.md` §8.2（第 646 行）`pas: StockPAS`
-- `docs/design/analysis/analysis-api.md` §6.3（第 451 行）`pas_data: List[StockPAS]`
+- `docs/design/core-infrastructure/trading/trading-api.md` §8.2（第 646 行）`pas: StockPAS`
+- `docs/design/core-infrastructure/analysis/analysis-api.md` §6.3（第 451 行）`pas_data: List[StockPAS]`
 - `docs/design/core-algorithms/pas/pas-data-models.md` §3.1（第 102 行）`class StockPasDaily`
 - `docs/design/core-algorithms/pas/pas-api.md` 全文使用 `StockPasDaily`
 
@@ -126,8 +126,8 @@
 ### P2-R27-06: Data Layer standardize_ts_code 去后缀与系统其他模块使用含后缀代码冲突
 
 **文件**:
-- `docs/design/data-layer/data-layer-api.md` §4.1（第 212 行）`standardize_ts_code(df) # 000001.SZ → 000001`
-- `docs/design/trading/trading-api.md` §11（第 774 行）示例 `stock_code="000001.SZ"`
+- `docs/design/core-infrastructure/data-layer/data-layer-api.md` §4.1（第 212 行）`standardize_ts_code(df) # 000001.SZ → 000001`
+- `docs/design/core-infrastructure/trading/trading-api.md` §11（第 774 行）示例 `stock_code="000001.SZ"`
 - 各 data-models 中 `stock_code` 字段无统一格式约定
 
 **问题**:
@@ -143,8 +143,8 @@
 ### P2-R27-07: Trading API SignalBuilder 未文档化 Gate FAIL 前置检查
 
 **文件**:
-- `docs/design/trading/trading-api.md` §10.1（第 714-743 行）`build_trade_signals()`
-- `docs/design/trading/trading-algorithm.md`（R26 新增 Gate FAIL 检查，第 36-39 行）
+- `docs/design/core-infrastructure/trading/trading-api.md` §10.1（第 714-743 行）`build_trade_signals()`
+- `docs/design/core-infrastructure/trading/trading-algorithm.md`（R26 新增 Gate FAIL 检查，第 36-39 行）
 
 **问题**:
 - R26 为 trading-algorithm.md 新增了 Gate FAIL 前置检查（`validation_gate.final_gate == FAIL` 时阻断信号生成）
@@ -163,7 +163,7 @@
 ### P2-R27-08: backtest-api.md min_recommendation 缺少枚举引用与语义说明
 
 **文件**:
-- `docs/design/backtest/backtest-api.md` §2.1（第 167 行）`min_recommendation: str = "BUY"`
+- `docs/design/core-infrastructure/backtest/backtest-api.md` §2.1（第 167 行）`min_recommendation: str = "BUY"`
 - `docs/design/core-algorithms/integration/integration-data-models.md` §3.2（第 186-192 行）Recommendation 枚举
 
 **问题**:
@@ -180,8 +180,8 @@
 ### P2-R27-09: Analysis API Visualizer 引用了 3 个未在 data-models 中定义的返回类型
 
 **文件**:
-- `docs/design/analysis/analysis-api.md` §6.1-6.3（第 411-461 行）
-- `docs/design/analysis/analysis-data-models.md`（无对应类型定义）
+- `docs/design/core-infrastructure/analysis/analysis-api.md` §6.1-6.3（第 411-461 行）
+- `docs/design/core-infrastructure/analysis/analysis-data-models.md`（无对应类型定义）
 
 **问题**:
 - §6.1 `build_temperature_trend()` → `TemperatureTrendData`（未定义）

@@ -244,9 +244,9 @@ Governance/specs/phase-XX-task-Y/requirements.md
 | API 参考 | `docs/design/**/**-api.md` | 接口契约 |
 | 信息流 | `docs/design/**/**-information-flow.md` | 数据流向 |
 | 模块级规范 | `docs/design/core-algorithms/*/` | 算法细节 |
-| GUI 规范 | `docs/design/gui/` | 界面/权限 |
-| 回测规范 | `docs/design/backtest/` | 回测逻辑 |
-| 交易规范 | `docs/design/trading/` | 风控/下单 |
+| GUI 规范 | `docs/design/core-infrastructure/gui/` | 界面/权限 |
+| 回测规范 | `docs/design/core-infrastructure/backtest/` | 回测逻辑 |
+| 交易规范 | `docs/design/core-infrastructure/trading/` | 风控/下单 |
 
 ### 3.3 A2 阶段强制规范检查
 

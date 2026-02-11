@@ -32,6 +32,7 @@ Primary references:
 
 - `docs/system-overview.md`
 - `docs/module-index.md`
+- `docs/design/` (`core-algorithms/` + `core-infrastructure/` + `enhancements/`)
 - `Governance/Capability/SPIRAL-CP-OVERVIEW.md`
 - `Governance/SpiralRoadmap/SPIRAL-IMPLEMENTATION-OVERVIEW.md`
 

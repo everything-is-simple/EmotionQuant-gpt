@@ -89,7 +89,7 @@ df = pro.daily(trade_date='20180810')
 | **5000积分官方** | >30字符 | 官方API | 直接连接TuShare官方API |
 | **10000积分网关** | ≤30字符 | 第三方网关 | 通过第三方网关连接 |
 
-**代码实现说明**（[docs/design/data-layer/data-layer-api.md](../../design/data-layer/data-layer-api.md)）：
+**代码实现说明**（[docs/design/core-infrastructure/data-layer/data-layer-api.md](../../design/data-layer/data-layer-api.md)）：
 
 ```python
 from src.data.downloaders.tushare_client import TuShareClient

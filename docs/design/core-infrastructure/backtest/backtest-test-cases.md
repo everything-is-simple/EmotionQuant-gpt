@@ -176,8 +176,8 @@
 
 ## 关联文档
 
-- `docs/design/backtest/backtest-algorithm.md`
-- `docs/design/backtest/backtest-data-models.md`
-- `docs/design/backtest/backtest-api.md`
-- `docs/design/backtest/backtest-information-flow.md`
+- `docs/design/core-infrastructure/backtest/backtest-algorithm.md`
+- `docs/design/core-infrastructure/backtest/backtest-data-models.md`
+- `docs/design/core-infrastructure/backtest/backtest-api.md`
+- `docs/design/core-infrastructure/backtest/backtest-information-flow.md`
 

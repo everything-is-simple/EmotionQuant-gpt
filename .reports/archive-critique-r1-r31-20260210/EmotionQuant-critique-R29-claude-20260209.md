@@ -41,8 +41,8 @@ system-overview 和 naming-conventions 均表示 TA 指标**可用于对照/特�
 
 | 项目 | 内容 |
 |------|------|
-| 文件 | `docs/design/validation/factor-weight-validation-data-models.md` |
-| 关联 | `docs/design/validation/factor-weight-validation-algorithm.md` §6、Data Layer data-models |
+| 文件 | `docs/design/core-infrastructure/validation/factor-weight-validation-data-models.md` |
+| 关联 | `docs/design/core-infrastructure/validation/factor-weight-validation-algorithm.md` §6、Data Layer data-models |
 
 **问题描述**：
 
@@ -64,7 +64,7 @@ algorithm §6 和 info-flow §7 仅说明产物存储为 `.reports/validation/{t
 
 | 项目 | 内容 |
 |------|------|
-| 文件 | `docs/design/validation/factor-weight-validation-api.md` §2-4、`docs/design/core-algorithms/integration/integration-api.md` §2.1、`integration-data-models.md` §2.5-2.6 |
+| 文件 | `docs/design/core-infrastructure/validation/factor-weight-validation-api.md` §2-4、`docs/design/core-algorithms/integration/integration-api.md` §2.1、`integration-data-models.md` §2.5-2.6 |
 
 **问题描述**：
 

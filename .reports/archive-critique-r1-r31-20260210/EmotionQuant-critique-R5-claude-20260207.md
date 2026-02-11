@@ -235,7 +235,7 @@ R4 的 15 个问题修了 13 个，修复质量明显提升（质量检查从 7 
 
 ### 7.2 关于「Snapshot 缺 created_at」的风险描述
 
-`src/data/models/snapshots.py` 确实缺少 `created_at`，与 `docs/design/data-layer/data-layer-data-models.md` 不一致。  
+`src/data/models/snapshots.py` 确实缺少 `created_at`，与 `docs/design/core-infrastructure/data-layer/data-layer-data-models.md` 不一致。  
 但“DuckDB 自动生成 created_at”在当前仓库内未见明确 DDL/默认值实现证据，建议改为：
 
 - 这是**模型契约缺口**；

@@ -952,17 +952,17 @@ S6 是**收敛圈**。前 5 圈快速迭代可能留下技术债、边界 case�
 
 | 模块 | 权威文档路径 | 关键章节 |
 |------|-------------|----------|
-| Data Layer | `docs/design/data-layer/data-layer-data-models.md` | §2 L1 字段、§3 L2 快照字段 |
-| Data Layer API | `docs/design/data-layer/data-layer-api.md` | §2 TuShareClient、§3 DataFetcher |
+| Data Layer | `docs/design/core-infrastructure/data-layer/data-layer-data-models.md` | §2 L1 字段、§3 L2 快照字段 |
+| Data Layer API | `docs/design/core-infrastructure/data-layer/data-layer-api.md` | §2 TuShareClient、§3 DataFetcher |
 | MSS | `docs/design/core-algorithms/mss/mss-algorithm.md` | §2 六因子、§3 公式、§4 温度 |
 | IRS | `docs/design/core-algorithms/irs/irs-algorithm.md` | §2 六因子、§3 公式、§5 轮动 |
 | PAS | `docs/design/core-algorithms/pas/pas-algorithm.md` | §2 三因子、§3 公式、§5 等级 |
-| Validation | `docs/design/validation/factor-weight-validation-algorithm.md` | §3 因子验证、§5 Gate |
+| Validation | `docs/design/core-infrastructure/validation/factor-weight-validation-algorithm.md` | §3 因子验证、§5 Gate |
 | Integration | `docs/design/core-algorithms/integration/integration-algorithm.md` | §3 三三制、§4 一致性、§5 推荐 |
-| Backtest | `docs/design/backtest/backtest-engine-selection.md` | §1 决策、§3 边界 |
-| Trading | `docs/design/trading/trading-algorithm.md` | §2 信号、§3 风控 |
-| Analysis | `docs/design/analysis/analysis-algorithm.md` | §2 绩效、§4 归因 |
-| GUI | `docs/design/gui/gui-algorithm.md` | §2 分级、§3 排序、§4 过滤 |
+| Backtest | `docs/design/core-infrastructure/backtest/backtest-engine-selection.md` | §1 决策、§3 边界 |
+| Trading | `docs/design/core-infrastructure/trading/trading-algorithm.md` | §2 信号、§3 风控 |
+| Analysis | `docs/design/core-infrastructure/analysis/analysis-algorithm.md` | §2 绩效、§4 归因 |
+| GUI | `docs/design/core-infrastructure/gui/gui-algorithm.md` | §2 分级、§3 排序、§4 过滤 |
 | 命名规范 | `docs/naming-conventions.md` | §1-5 周期/趋势/推荐/等级/方向 |
 
 ---

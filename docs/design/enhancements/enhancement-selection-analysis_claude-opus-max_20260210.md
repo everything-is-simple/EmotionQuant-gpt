@@ -12,20 +12,20 @@
 
 > 本文档与以下核心设计保持严格一致，任何修改须重新验证对齐性。
 
-> `docs/improvement-plans/drafts/` 与 `Governance/SpiralRoadmap/draft/` 仅作研究参考，不作为权威引用源。
+> `docs/design/enhancements/drafts/` 与 `Governance/SpiralRoadmap/draft/` 仅作研究参考，不作为权威引用源。
 
 | 依赖文档 | 版本 | 引用内容 |
 |----------|------|----------|
 | `docs/system-overview.md` | v4.1.2 | 架构分层、回测选型、数据策略 |
-| `docs/design/data-layer/data-layer-data-models.md` | v3.2.5 | L1 八张原始表 schema、L2/L3 字段定义 |
-| `docs/design/data-layer/data-layer-api.md` | v3.1.2 | TuShareClient 异常体系、重试机制 |
+| `docs/design/core-infrastructure/data-layer/data-layer-data-models.md` | v3.2.5 | L1 八张原始表 schema、L2/L3 字段定义 |
+| `docs/design/core-infrastructure/data-layer/data-layer-api.md` | v3.1.2 | TuShareClient 异常体系、重试机制 |
 | `docs/design/core-algorithms/mss/mss-data-models.md` | v3.1.6 | MssPanorama 输出字段 |
 | `docs/design/core-algorithms/integration/integration-data-models.md` | v3.4.10 | IntegratedRecommendation 28 字段 |
-| `docs/design/backtest/backtest-data-models.md` | v3.4.10 | BacktestSignal.source 双来源、EngineType 枚举 |
-| `docs/design/backtest/backtest-engine-selection.md` | v1.1.0 | Qlib 主选 + 本地向量化基线 |
-| `docs/design/validation/factor-weight-validation-data-models.md` | v2.1.1 | 五张 Validation 表、ValidationWeightPlan 桥接 |
-| `docs/design/analysis/analysis-data-models.md` | v3.1.6 | L4 日报模板字段、绩效公式 |
-| `docs/improvement-plans/eq-improvement-plan-core-frozen.md` | v2.0.0 | ENH-01~08 白名单、冻结边界 |
+| `docs/design/core-infrastructure/backtest/backtest-data-models.md` | v3.4.10 | BacktestSignal.source 双来源、EngineType 枚举 |
+| `docs/design/core-infrastructure/backtest/backtest-engine-selection.md` | v1.1.0 | Qlib 主选 + 本地向量化基线 |
+| `docs/design/core-infrastructure/validation/factor-weight-validation-data-models.md` | v2.1.1 | 五张 Validation 表、ValidationWeightPlan 桥接 |
+| `docs/design/core-infrastructure/analysis/analysis-data-models.md` | v3.1.6 | L4 日报模板字段、绩效公式 |
+| `docs/design/enhancements/eq-improvement-plan-core-frozen.md` | v2.0.0 | ENH-01~08 白名单、冻结边界 |
 | `Governance/steering/系统铁律.md` | v5.1.0 | 单指标不得独立决策；技术指标仅可对照/辅助 |
 
 ### 冻结边界声明

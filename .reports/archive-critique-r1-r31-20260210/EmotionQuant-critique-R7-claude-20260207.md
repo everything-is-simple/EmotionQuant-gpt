@@ -260,8 +260,8 @@ Config 缺少过户费和最低佣金参数。如果回测使用 Config 参数�
 | ~~P2-R7-11~~ | MSS 信息流架构图仅 4 因子 | ✅ 已修复（补齐极端因子/波动因子） |
 
 本次落地文件（关键）：
-- `docs/design/trading/trading-algorithm.md`
-- `docs/design/trading/trading-data-models.md`
+- `docs/design/core-infrastructure/trading/trading-algorithm.md`
+- `docs/design/core-infrastructure/trading/trading-data-models.md`
 - `src/config/config.py`
 - `.env.example`
 - `docs/design/core-algorithms/mss/mss-information-flow.md`

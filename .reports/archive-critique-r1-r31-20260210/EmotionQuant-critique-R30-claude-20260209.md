@@ -36,7 +36,7 @@
 
 | 项目 | 内容 |
 |------|------|
-| 文件 | `docs/design/validation/factor-weight-validation-data-models.md` §1.2, §1.3, §1.6 vs §3.1, §3.2, §3.5 |
+| 文件 | `docs/design/core-infrastructure/validation/factor-weight-validation-data-models.md` §1.2, §1.3, §1.6 vs §3.1, §3.2, §3.5 |
 | 性质 | R29 新增 DDL 时引入的回归问题，与 R28 同类型 |
 
 R29 为 Validation 补齐了 5 张 DDL，但其中 3 个 dataclass 与对应 DDL 存在字段差异：
@@ -67,7 +67,7 @@ R29 为 Validation 补齐了 5 张 DDL，但其中 3 个 dataclass 与对应 DDL
 
 | 项目 | 内容 |
 |------|------|
-| 文件 | `docs/design/validation/factor-weight-validation-information-flow.md` §4.1 |
+| 文件 | `docs/design/core-infrastructure/validation/factor-weight-validation-information-flow.md` §4.1 |
 
 info-flow §4.1 的"因子名→数据源映射"表只列出了 9 个因子，但 ValidatedFactor 枚举定义了 15 个。缺少的 6 个：
 
@@ -104,7 +104,7 @@ Data Layer data-models §4.6 已收录，但 naming-conventions 作为命名权�
 
 | 项目 | 内容 |
 |------|------|
-| 文件 | `docs/design/data-layer/data-layer-data-models.md` §1.1 (line 40-45) |
+| 文件 | `docs/design/core-infrastructure/data-layer/data-layer-data-models.md` §1.1 (line 40-45) |
 
 §1.1 的 ASCII 总览图 L3 列出 5 张表（mss_panorama / irs_industry_daily / stock_pas_daily / integrated_recommendation / pas_breadth_daily），未包含 `validation_*` 表。但 §4.6 已详细收录全部 5 张 Validation 表。
 

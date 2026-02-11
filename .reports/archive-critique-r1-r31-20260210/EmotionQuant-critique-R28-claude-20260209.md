@@ -23,7 +23,7 @@
 
 ### P1-R28-01: Data Layer `integrated_recommendation` 字段表+DDL 缺少 6 个追溯字段
 
-**位置**: `docs/design/data-layer/data-layer-data-models.md` §4.4（行 408-473）  
+**位置**: `docs/design/core-infrastructure/data-layer/data-layer-data-models.md` §4.4（行 408-473）  
 **对比来源**: `docs/design/core-algorithms/integration/integration-data-models.md` §3.1 + §4.1
 
 **现状**:  
@@ -44,7 +44,7 @@ Data Layer §4.4 的字段表（22 列）和下方的逻辑 DDL 片段均**缺�
 
 ### P1-R28-02: Data Layer `irs_industry_daily` 缺少 `quality_flag` 和 `sample_days`
 
-**位置**: `docs/design/data-layer/data-layer-data-models.md` §4.2（行 355-380）  
+**位置**: `docs/design/core-infrastructure/data-layer/data-layer-data-models.md` §4.2（行 355-380）  
 **对比来源**: `docs/design/core-algorithms/irs/irs-data-models.md` §3.1 + §4.1
 
 **现状**:  
@@ -61,7 +61,7 @@ Data Layer §4.2 `irs_industry_daily` 字段表（16 列）**缺少这 2 个字�
 
 ### P1-R28-03: Analysis `DailyReport` dataclass 缺少 `total_return` 字段
 
-**位置**: `docs/design/analysis/analysis-data-models.md` §1.2（行 54-79）vs §3.1（行 217-237）
+**位置**: `docs/design/core-infrastructure/analysis/analysis-data-models.md` §1.2（行 54-79）vs §3.1（行 217-237）
 
 **现状**:  
 DDL `daily_report` 表（R21 新增）包含 `total_return DECIMAL(10,4)`，但 `DailyReport` dataclass **没有**该字段。
@@ -76,8 +76,8 @@ dataclass 有 `max_drawdown`/`sharpe_ratio`/`win_rate` 等绩效字段，唯独�
 ### P1-R28-04: Trading DDL 使用 TEXT/REAL 类型体系 vs Data Layer 使用 VARCHAR/DECIMAL
 
 **位置**:  
-- `docs/design/trading/trading-data-models.md` §4.1-4.3（行 240-301）
-- `docs/design/data-layer/data-layer-data-models.md` §7.1-7.3（行 574-631）
+- `docs/design/core-infrastructure/trading/trading-data-models.md` §4.1-4.3（行 240-301）
+- `docs/design/core-infrastructure/data-layer/data-layer-data-models.md` §7.1-7.3（行 574-631）
 
 **现状**:  
 Trading 模块 DDL 对 `trade_records` / `positions` / `t1_frozen` 使用 DuckDB 原生类型（TEXT, REAL, INTEGER），Data Layer 对相同表使用 MySQL 风格类型（VARCHAR(50), DECIMAL(12,4)）。
