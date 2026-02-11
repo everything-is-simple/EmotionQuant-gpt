@@ -316,6 +316,6 @@ CREATE TABLE integrated_recommendation (
 - 算法设计：[integration-algorithm.md](./integration-algorithm.md)
 - API接口：[integration-api.md](./integration-api.md)
 - 信息流：[integration-information-flow.md](./integration-information-flow.md)
-- 验证模块数据模型：[factor-weight-validation-data-models.md](../../validation/factor-weight-validation-data-models.md)
+- 验证模块数据模型：[factor-weight-validation-data-models.md](../validation/factor-weight-validation-data-models.md)
 
 

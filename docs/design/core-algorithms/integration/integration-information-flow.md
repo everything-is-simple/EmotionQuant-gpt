@@ -265,17 +265,21 @@ elif final_score >= 30:
     recommendation = "SELL"
 else:
     recommendation = "AVOID"
+
+# 降级规则（与 integration-algorithm.md §5.1 对齐）
+if mss_cycle == "unknown" and recommendation in {"STRONG_BUY", "BUY"}:
+    recommendation = "HOLD"
 ```
 
 ### 2.7 综合中性度计算
 
 ```
-输入：三系统中性度 + 一致性系数 + neutrality_risk_factor
+输入：三系统中性度 + 权重三元组 + 一致性系数 + mss_neutrality_risk_factor
 输出：neutrality
 
-neutrality = (mss_neut + irs_neut + pas_neut) / 3
+neutrality = (mss_neut × w_mss + irs_neut × w_irs + pas_neut × w_pas)
           × consistency_factor
-          × neutrality_risk_factor
+          × mss_neutrality_risk_factor
 neutrality = clip(neutrality, 0, 1)
 ```
 

@@ -85,7 +85,7 @@ class IntegrationEngine:
         )
 ```
 
-### 2.3 Validation 桥接调用约定
+### 2.2 Validation 桥接调用约定
 
 ```python
 # 约定：Integration 不直接解析 selected_weight_plan 字符串
@@ -101,7 +101,7 @@ signals = integration_engine.calculate(
 
 说明：`selected_weight_plan` -> `WeightPlan` 的桥接责任在 Validation Orchestrator，避免 Integration 侧重复实现解析逻辑。
 
-### 2.2 数据仓库接口
+### 2.3 数据仓库接口
 
 ```python
 class IntegrationRepository:
