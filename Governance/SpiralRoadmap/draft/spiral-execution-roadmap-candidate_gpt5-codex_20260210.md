@@ -2,7 +2,7 @@
 
 ## 0. 文档元信息
 
-- 文档用途: 作为 `docs/design/enhancements/spiral-full-roadmap-detailed_claude-opus-max_20260210.md` 的校正后执行稿，供你审批后落为主路线。
+- 文档用途: 作为 `Governance/SpiralRoadmap/draft/spiral-full-roadmap-detailed_claude-opus-max_20260210.md` 的校正后执行稿，供你审批后落为主路线。
 - 生成模型: GPT-5 Codex
 - 生成时间: 2026-02-10
 - 状态: Candidate（评审中）
@@ -52,7 +52,7 @@
   - `Governance/steering/6A-WORKFLOW.md`
 - 路线与能力包:
   - `docs/design/enhancements/eq-improvement-plan-core-frozen.md`
-  - `docs/design/enhancements/spiral-full-roadmap-detailed_claude-opus-max_20260210.md`
+  - `Governance/SpiralRoadmap/draft/spiral-full-roadmap-detailed_claude-opus-max_20260210.md`
   - `Governance/Capability/SPIRAL-CP-OVERVIEW.md`
   - `Governance/Capability/CP-01-data-layer.md` 到 `Governance/Capability/CP-10-validation.md`
 - 设计契约:
@@ -61,8 +61,8 @@
   - `docs/design/core-algorithms/irs/irs-algorithm.md`
   - `docs/design/core-algorithms/pas/pas-algorithm.md`
   - `docs/design/core-algorithms/integration/integration-algorithm.md`
-  - `docs/design/core-infrastructure/validation/factor-weight-validation-algorithm.md`
-  - `docs/design/core-infrastructure/validation/factor-weight-validation-data-models.md`
+  - `docs/design/core-algorithms/validation/factor-weight-validation-algorithm.md`
+  - `docs/design/core-algorithms/validation/factor-weight-validation-data-models.md`
   - `docs/design/core-infrastructure/backtest/backtest-algorithm.md`
   - `docs/design/core-infrastructure/backtest/backtest-engine-selection.md`
   - `docs/design/core-infrastructure/trading/trading-algorithm.md`

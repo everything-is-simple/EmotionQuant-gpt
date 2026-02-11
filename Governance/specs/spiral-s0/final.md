@@ -46,15 +46,14 @@
 
 ## 4. 同步记录
 
-- [ ] `Governance/record/development-status.md`
-- [ ] `Governance/record/debts.md`
-- [ ] `Governance/record/reusable-assets.md`
-- [ ] `Governance/Capability/SPIRAL-CP-OVERVIEW.md`
+- [x] `Governance/record/development-status.md`
+- [x] `Governance/record/debts.md`
+- [x] `Governance/record/reusable-assets.md`
+- [x] `Governance/Capability/SPIRAL-CP-OVERVIEW.md`
 
 ## 5. 下一圈建议
 
-- 主目标：
-- CP 组合：
-- 预估风险：
-
+- 主目标：完成 S0 数据最小闭环（CP-01 单日采集→落盘→快照→测试），产出可复现实证据链。
+- CP 组合：CP01-S1、CP01-S2。
+- 预估风险：TuShare Token 可用性与频控限制、首圈 CLI/脚手架对接耗时、样例数据覆盖不足导致快照校验波动。
 

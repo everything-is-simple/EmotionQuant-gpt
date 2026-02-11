@@ -957,7 +957,7 @@ S6 是**收敛圈**。前 5 圈快速迭代可能留下技术债、边界 case�
 | MSS | `docs/design/core-algorithms/mss/mss-algorithm.md` | §2 六因子、§3 公式、§4 温度 |
 | IRS | `docs/design/core-algorithms/irs/irs-algorithm.md` | §2 六因子、§3 公式、§5 轮动 |
 | PAS | `docs/design/core-algorithms/pas/pas-algorithm.md` | §2 三因子、§3 公式、§5 等级 |
-| Validation | `docs/design/core-infrastructure/validation/factor-weight-validation-algorithm.md` | §3 因子验证、§5 Gate |
+| Validation | `docs/design/core-algorithms/validation/factor-weight-validation-algorithm.md` | §3 因子验证、§5 Gate |
 | Integration | `docs/design/core-algorithms/integration/integration-algorithm.md` | §3 三三制、§4 一致性、§5 推荐 |
 | Backtest | `docs/design/core-infrastructure/backtest/backtest-engine-selection.md` | §1 决策、§3 边界 |
 | Trading | `docs/design/core-infrastructure/trading/trading-algorithm.md` | §2 信号、§3 风控 |

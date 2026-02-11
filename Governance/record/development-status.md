@@ -2,7 +2,7 @@
 
 **最后更新**: 2026-02-07  
 **当前版本**: v3.1（Spiral+CP 治理基线完成，S0 待执行）  
-**仓库地址**: https://github.com/everything-is-simple/EmotionQuant_beta
+**仓库地址**: https://github.com/everything-is-simple/EmotionQuant-gpt
 
 ---
 
@@ -18,7 +18,7 @@ S0 目标：完成一条可复现的最小数据链路，并产出可验证证�
 
 1. 路线术语统一为 Spiral + CP（兼容旧文件名）。
 2. ROADMAP 总览重构为 Spiral 主控文档（S0-S6 + 最小同步契约）。
-3. 9 个能力包文档统一为 CP 模板（契约、Slice、门禁、更新触发）。
+3. 10 个能力包文档统一为 CP 模板（契约、Slice、门禁、更新触发）。
 4. 工作流精简为默认四步，Strict 6A 仅高风险启用。
 5. 治理文件补充“文档服务实现”与最小同步策略。
 
