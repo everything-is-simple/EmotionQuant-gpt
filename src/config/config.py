@@ -93,7 +93,7 @@ if BaseSettings:
         )
 
         @classmethod
-        def from_env(cls, *, env_file: str | None = ".env") -> "Config":
+        def from_env(cls, *, env_file: str | None = ".env") -> Config:
             cfg = cls(_env_file=env_file)
             default_initial_cash = 1_000_000.0
             initial_cash = cfg.backtest_initial_cash
@@ -117,7 +117,7 @@ if BaseSettings:
             )
 
         @classmethod
-        def load(cls) -> "Config":
+        def load(cls) -> Config:
             return cls.from_env()
 
 else:
@@ -172,7 +172,7 @@ else:
         backtest_max_holding_days: int = 10
 
         @classmethod
-        def from_env(cls, *, env_file: str | None = ".env") -> "Config":
+        def from_env(cls, *, env_file: str | None = ".env") -> Config:
             initial_cash_env = os.getenv("BACKTEST_INITIAL_CASH")
             initial_capital_env = os.getenv("BACKTEST_INITIAL_CAPITAL")
             if initial_cash_env is not None:
@@ -300,5 +300,5 @@ else:
             )
 
         @classmethod
-        def load(cls) -> "Config":
+        def load(cls) -> Config:
             return cls.from_env()
