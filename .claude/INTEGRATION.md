@@ -1,45 +1,56 @@
-# .claude Integration Notes (Historical)
+# .claude Integration Notes
 
-**Status**: Historical reference, not canonical governance source.
-**Last updated**: 2026-02-07
+**Status**: Runtime configuration for Claude Code
+**Last updated**: 2026-02-14
 
 ---
 
 ## Scope
 
-This file only explains how local `.claude` tooling maps to current repo workflow.
+This file documents the `.claude` tooling configuration.
 Canonical policy lives in:
 
-- `README.md`
 - `CLAUDE.md`
 - `Governance/steering/`
+- `Governance/Capability/`
 
 ---
 
-## Runtime truth
+## Runtime Configuration
 
-- Hook wiring: `.claude/settings.json`
-- Hook scripts: `.claude/hooks/*.py`
-- Spiral stage source: `Governance/record/development-status.md`
+- **Hook wiring**: `.claude/settings.json`
+- **Hook scripts**: `.claude/hooks/*.py`
+- **Spiral state**: `Governance/record/development-status.md`
 
-If any old `.claude` markdown conflicts with runtime truth, runtime truth wins.
-
----
-
-## Mapping
-
-| Concern | Current source |
-|---|---|
-| Workflow terms | Spiral (`S0-S6`) |
-| Task governance | `Governance/steering/6A-WORKFLOW.md` |
-| Path/security checks | `.claude/hooks/pre_edit_check.py` + `scripts/quality/local_quality_check.py` |
-| Session reminders | `.claude/hooks/session_start.py` |
-| Prompt hints | `.claude/hooks/user_prompt_submit.py` |
+If any `.claude` markdown conflicts with governance docs, governance docs win.
 
 ---
 
-## De-risking rules
+## Active Commands
 
-- Do not treat legacy "Phase" wording as stage-gate requirements.
-- Do not rely on undocumented orchestrators unless `settings.json` explicitly wires them.
-- Keep `.claude/` lightweight; avoid duplicating governance docs.
+| Command | File | Purpose |
+|---------|------|---------|
+| `/6a-status` | `commands/6a-status.md` | Spiral 工作流状态查询 |
+| `/a4-check` | `commands/a4-check.md` | A4 Gate 检查 |
+| `/a6-check` | `commands/a6-check.md` | A6 完整检查 |
+| `/tdd` | `commands/tdd.md` | TDD 提醒 |
+
+---
+
+## Active Hooks
+
+| Hook | Script | Purpose |
+|------|--------|---------|
+| SessionStart | `hooks/session_start.py` | 会话启动检查 |
+| UserPromptSubmit | `hooks/user_prompt_submit.py` | 提示词提交检查 |
+| PreToolUse (Edit/Write) | `hooks/pre_edit_check.py` | 编辑前检查 |
+| PostToolUse (Edit/Write) | `hooks/post_edit_check.py` | 编辑后检查 |
+
+---
+
+## Principles
+
+- **Spiral-first**: Use `S0-S6` terminology, not "Phase"
+- **CP naming**: Use `CP-*` for capability packs
+- **Minimal sync**: 5 required files per Spiral (per `CLAUDE.md` §7)
+- **No duplication**: Keep `.claude/` lightweight

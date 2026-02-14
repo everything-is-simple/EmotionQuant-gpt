@@ -9,7 +9,7 @@
 使用斜杠命令直接执行：
 
 ```text
-/a4-check [phase]
+/a4-check [spiral]
 ```
 
 或者手动执行零容忍检查：
@@ -22,32 +22,23 @@ grep -r "G:/EmotionQuant_data\|C:/\|D:/" --include="*.py" src/ tests/ 2>/dev/nul
 grep -r "talib\|MA\|RSI\|MACD\|KDJ\|BOLL\|EMA\|SMA\|ATR\|DMI\|ADX" --include="*.py" src/ tests/ 2>/dev/null
 ```
 
-如果用户没有提供 phase 参数，请询问当前是哪个 Phase。
+如果用户没有提供 spiral 参数，请询问当前是哪个 Spiral 圈。
 
 ### 2. 零容忍检查项
 
 检查以下内容并报告结果：
 
-- [ ] **路径硬编码检查**：代码中不允许存在硬编码的绝对路径
+- [ ] **路径硬编码检查**：代码中不允许存在硬编码的绝对路径，必须通过 `Config.from_env()` 读取
+- [ ] **技术指标检查**：技术指标（MA/RSI/MACD/KDJ/BOLL等）可用于对照/特征工程，但不得独立触发交易
+- [ ] **数据契约一致性**：字段命名符合 `docs/naming-conventions.md`
+- [ ] **简化方案检查**：S6 阶段不允许 TODO/FIXME/HACK/mock/fake
 
-- [ ] **技术指标检查**：不允许引入技术指标（MA/RSI/MACD/KDJ/BOLL等）
-
-- [ ] **数据契约一致性**：数据模型定义与 `docs/design/{module}/{module}-data-models.md` 必须一致
-
-- [ ] **简化方案检查**：不允许 TODO/FIXME/HACK/mock/fake 等
-
-### 3. 三维一致性自查
-
-- [ ] 数据模型 ↔ API 一致性
-
-- [ ] API ↔ 信息流一致性
-
-### 4. 输出格式
+### 3. 输出格式
 
 ```text
 ## A4 Gate 检查结果
 
-**Phase**: XX | **Stage**: A4 | **时间**: YYYY-MM-DD HH:MM
+**Spiral**: S{N} | **阶段**: A4 | **时间**: YYYY-MM-DD HH:MM
 
 ### 零容忍检查
 - 路径硬编码: ✅ 通过 / ❌ 失败
@@ -55,22 +46,21 @@ grep -r "talib\|MA\|RSI\|MACD\|KDJ\|BOLL\|EMA\|SMA\|ATR\|DMI\|ADX" --include="*.
 - 数据契约: ✅ 通过 / ❌ 失败
 - 简化方案: ✅ 通过 / ❌ 失败
 
-### 三维一致性
-- 数据模型↔API: ✅ / ❌
-- API↔信息流: ✅ / ❌
-
 ### 结论
 [✅ 可进入 A5 阶段 / ❌ 需修复后重新检查]
 ```
 
-### 5. 失败处理
+### 4. 失败处理
 
 如果任何零容忍检查失败：
 
 1. 列出所有失败项
-
 2. 提供具体修复建议
-
 3. 修复后必须重新运行 `/a4-check`
-
 4. **不允许跳过直接进入 A5**
+
+### 5. 权威文档
+
+- `CLAUDE.md` - 系统铁律与架构约束
+- `docs/naming-conventions.md` - 命名规范
+- `Governance/steering/系统铁律.md` - 零容忍规则

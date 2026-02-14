@@ -79,36 +79,6 @@
       }
     ]
   },
-  "specValidation": {
-    "enabled": true,
-    "autoCheckOnA2": true,
-    "requireSpecVersion": true,
-    "specFiles": [
-      "docs/design/{module}/{module}-data-models.md",
-      "docs/design/{module}/{module}-api.md",
-      "docs/design/{module}/{module}-information-flow.md"
-    ],
-    "moduleSpecs": {
-      "mss": "docs/design/core-algorithms/mss/",
-      "irs": "docs/design/core-algorithms/irs/",
-      "pas": "docs/design/core-algorithms/pas/",
-      "gui": "docs/design/gui/",
-      "backtest": "docs/design/backtest/",
-      "trading": "docs/design/trading/"
-    }
-  },
-  "specSync": {
-    "enabled": true,
-    "checkOnSessionStart": true,
-    "notifyOnUpdate": true,
-    "specDirectory": "docs/design/",
-    "watchPatterns": [
-      "**/*.md"
-    ]
-  },
-  "enabledPlugins": {
-    "everything-claude-code@everything-claude-code": true
-  },
   "mcpServers": {
     "context7": {
       "type": "stdio",
@@ -145,7 +115,7 @@
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
-        "G:\\\\EmotionQuant-gpt",
+        "G:\\\\EmotionQuant-glm",
         "G:\\EmotionQuant_data"
       ],
       "env": {}
@@ -181,4 +151,3 @@
     }
   }
 }
-

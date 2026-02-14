@@ -1,6 +1,6 @@
-# TDD 提醒（A5 实现阶段）
+# TDD 提醒（A3 实现阶段）
 
-在 A5 实现阶段开始前，提醒 TDD（测试驱动开发）原则和零容忍规则。
+在 A3 实现阶段，提醒 TDD（测试驱动开发）原则和零容忍规则。
 
 ## TDD 核心流程
 
@@ -26,12 +26,13 @@ db_path = "G:/EmotionQuant_data/database/emotionquant.db"
 cache_dir = "data/cache/"
 
 # ✅ 必须这样
+from utils.config import Config
 config = Config.from_env()
 db_path = config.database_path
 cache_dir = config.cache_dir
 ```
 
-### 2. 数据契约违规
+### 2. 字段命名违规
 
 ```python
 # ❌ 禁止自创字段名
@@ -40,11 +41,11 @@ class Bar:
     date: str  # 错误！应该是 trade_date
     symbol: str  # 错误！应该是 ts_code
 
-# ✅ 必须严格按照 {module}-data-models.md
+# ✅ 必须符合 docs/naming-conventions.md
 @dataclass
 class Bar:
-    ts_code: str
-    trade_date: str
+    ts_code: str       # TuShare 格式，如 000001.SZ
+    trade_date: str    # 交易日，YYYYMMDD 格式
     open: float
     high: float
     low: float
@@ -63,6 +64,8 @@ class Bar:
 
 ### 4. 技术指标使用
 
+根据系统铁律第 2 条"单指标不得独立决策"：
+
 ```python
 # ❌ 禁止作为独立交易触发
 import talib
@@ -70,7 +73,7 @@ rsi_signal = talib.RSI(close, timeperiod=14) > 70
 if rsi_signal:
     place_order()  # 错误：单指标独立触发
 
-# ✅ 可用于对照/特征工程，但必须联合情绪因子并通过 Gate
+# ✅ 可用于对照/特征工程，但必须联合情绪因子并通过 Validation Gate
 rsi = talib.RSI(close, timeperiod=14)
 features['rsi_14'] = rsi
 can_trade = (mss_score >= 70) and (final_gate in {"PASS", "WARN"})
@@ -80,15 +83,13 @@ if can_trade:
 
 ## 权威文档参考
 
-- 数据模型：`docs/design/{module}/{module}-data-models.md`
-
-- API 规范：`docs/design/{module}/{module}-api.md`
-
-- 信息流：`docs/design/{module}/{module}-information-flow.md`
+- `CLAUDE.md` - 系统铁律与架构约束
+- `docs/naming-conventions.md` - 字段命名规范
+- `Governance/steering/系统铁律.md` - 零容忍规则
 
 ## 遇到问题时
 
-1. **不确定数据模型定义**：立即查阅 `docs/design/{module}/{module}-data-models.md`
+1. **不确定字段命名**：立即查阅 `docs/naming-conventions.md`
 
 2. **Gate 检查失败**：立即停止，修复后重跑
 
@@ -97,11 +98,7 @@ if can_trade:
 ## 成功标准
 
 - [ ] 所有测试用例通过（绿灯）
-
 - [ ] Gate 检查全部通过
-
 - [ ] 代码符合 Black + Flake8 规范
-
 - [ ] 无路径硬编码
-
-- [ ] 数据模型与权威定义一致
+- [ ] 字段命名符合规范
