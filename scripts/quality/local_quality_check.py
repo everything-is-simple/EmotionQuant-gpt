@@ -5,6 +5,7 @@ Local quality checks migrated from historical .claude hooks.
 Checks:
 1) Session status (git branch, dirty tree)
 2) Hardcoded absolute path detection in code/config files
+3) Naming/contracts consistency checks for core design docs
 """
 
 from __future__ import annotations
@@ -15,6 +16,8 @@ import subprocess
 import sys
 from collections.abc import Iterable
 from pathlib import Path
+
+from scripts.quality.naming_contracts_check import check_naming_contracts
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SELF_FILE = Path(__file__).resolve()
@@ -113,9 +116,14 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Run local quality checks.")
     parser.add_argument("--session", action="store_true", help="Check git session status")
     parser.add_argument("--scan", action="store_true", help="Scan hardcoded absolute paths")
+    parser.add_argument(
+        "--contracts",
+        action="store_true",
+        help="Check naming/contracts consistency in core design docs",
+    )
     args = parser.parse_args()
 
-    if not args.session and not args.scan:
+    if not args.session and not args.scan and not args.contracts:
         parser.print_help()
         return 2
 
@@ -124,6 +132,8 @@ def main() -> int:
         exit_code = max(exit_code, check_session_status())
     if args.scan:
         exit_code = max(exit_code, check_hardcoded_paths())
+    if args.contracts:
+        exit_code = max(exit_code, check_naming_contracts())
     return exit_code
 
 

@@ -1,7 +1,7 @@
 # PAS 数据模型
 
-**版本**: v3.1.8（重构版）
-**最后更新**: 2026-02-09
+**版本**: v3.1.9（重构版）
+**最后更新**: 2026-02-14
 **状态**: 设计完成（验收口径补齐；代码未落地）
 
 ---
@@ -283,7 +283,7 @@ CREATE TABLE pas_opportunity_log (
 | opportunity_score | 0 ≤ x ≤ 100 |
 | opportunity_grade | IN ('S', 'A', 'B', 'C', 'D') |
 | direction | IN ('bullish', 'bearish', 'neutral') |
-| risk_reward_ratio | ≥ 0 |
+| risk_reward_ratio | ≥ 1.0（执行最低门槛） |
 | neutrality | 0 ≤ x ≤ 1 |
 
 ---
@@ -292,6 +292,7 @@ CREATE TABLE pas_opportunity_log (
 
 | 版本 | 日期 | 变更内容 |
 |------|------|----------|
+| v3.1.9 | 2026-02-14 | 修复 R26：§5.2 输出验证中 `risk_reward_ratio` 约束由 `≥ 0` 收敛为 `≥ 1.0`，与 `pas-algorithm` 和 Trading/Backtest 执行门槛一致 |
 | v3.1.8 | 2026-02-09 | 修复 R28：DDL 中 `trade_date` 统一为 `VARCHAR(8)`；`stock_code/stock_name/opportunity_grade` 宽度与 Data Layer 对齐；时间戳命名统一为 `created_at` 并移除 L3 主表 `update_time` |
 | v3.1.7 | 2026-02-08 | 修复 R18：`pas_factor_intermediate` 补齐 `consecutive_down_days`、三因子组合 raw（`bull_gene_raw/structure_raw/behavior_raw`）及对应 `mean/std` 快照列 |
 | v3.1.6 | 2026-02-08 | 修复 R17：`PasGrade` 注释区间改为半开区间表达（`[70,85)` 等），消除边界歧义 |
